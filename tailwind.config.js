@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         'dark-grey': '#191C1E',
         'light-grey': '#292E30',
+        'light-grey-hover': '#31383A',
       },
       fontFamily: {
         sans: [
