@@ -14,11 +14,11 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-      <div class="w-full h-full bg-dark-grey fixed -inset-0 grid">
-        <div class="grid grid-cols-2 gap-x-40 pt-10 flex flex-col mx-auto">
-          <div class="justify-self-start w-96">
-            <div class="text-white text-3xl">Hi, I’m Matt Beiswenger</div>
-            <div class="text-white pt-4 leading-7 text-md font-light">
+      <div class="bg-dark-grey fixed -inset-0 grid">
+        <div class="relative flex flex-row justify-between mx-auto max-w-screen-xl p-10 w-screen">
+          <div class="w-96">
+            <div class="text-white text-5xl">Hi, I’m Matt Beiswenger</div>
+            <div class="text-white pt-4 leading-7 text-lg font-light">
               I’m a software engineer at{' '}
               <CustomLink url="https://topbloc.com/">👨🏼‍💻 TopBloc</CustomLink>{' '}
               where I work across our whole stack including Ember, Django, and
@@ -33,7 +33,13 @@ export default function Home() {
               .
             </div>
           </div>
-          <div class="text-white text-2xl">Projects</div>
+          <div>
+            <div class="text-white text-2xl justify-self-start">Projects</div>
+            <div class="grid grid-flow-row gap-y-4 pt-4">
+              <div class="w-96 h-10 bg-light-grey rounded-lg"></div>
+              <div class="w-96 h-10 bg-light-grey rounded-lg"></div>
+            </div>
+          </div>
         </div>
       </div>
     </>
