@@ -26,7 +26,11 @@ export default function Home() {
               my kryptonite) and I share what I learn on my blog{' '}
               <CustomLink>📓 something.io</CustomLink>. When I’m not coding, you
               can find me walking along the Chicago lakefront with my
-              goldendoodle <CustomLink>🐕 Charlie</CustomLink>.
+              goldendoodle{' '}
+              <CustomLink url="https://www.instagram.com/p/CCABThOhGm4/">
+                🐕 Charlie
+              </CustomLink>
+              .
             </div>
           </div>
           <div class="text-white text-2xl">Projects</div>
