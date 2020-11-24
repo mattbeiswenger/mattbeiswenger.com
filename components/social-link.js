@@ -2,7 +2,7 @@ function SocialLink({ url, children }) {
   return (
     <a
       href={url}
-      class="flex bg-light-grey rounded-full h-12 w-12 p-4 justify-center align-center transition duration-200 hover:bg-light-grey-hover"
+      class="flex justify-center items-center h-12 w-12 rounded-full bg-light-grey transition duration-200 hover:bg-light-grey-hover"
       target="_blank"
       rel="noopener noreferrer"
     >
