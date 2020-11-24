@@ -8,9 +8,6 @@ module.exports = {
         'light-grey': '#292E30',
         'light-grey-hover': '#31383A',
       },
-      maxWidth: {
-        1440: '1440px',
-      },
       fontFamily: {
         sans: [
           'Inter',
