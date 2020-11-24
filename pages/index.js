@@ -1,5 +1,9 @@
 import Head from 'next/head'
 import CustomLink from '../components/custom-link'
+import TwitterLogo from '../components/twitter-logo'
+import InstagramLogo from '../components/instagram-logo'
+import GitHubLogo from '../components/github-logo'
+import ProfileLink from '../components/profile-link'
 
 export default function Home() {
   return (
@@ -31,6 +35,17 @@ export default function Home() {
                 🐕 Charlie
               </CustomLink>
               .
+              <div class="pt-4 flex flex-row gap-3">
+                <ProfileLink url="https://github.com/mattbeiswenger">
+                  <GitHubLogo />
+                </ProfileLink>
+                <ProfileLink url="https://twitter.com/mattbeiswenger">
+                  <TwitterLogo />
+                </ProfileLink>
+                <ProfileLink url="https://www.instagram.com/matt_beiswenger">
+                  <InstagramLogo />
+                </ProfileLink>
+              </div>
             </div>
           </div>
           <div>
