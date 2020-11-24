@@ -18,9 +18,9 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-      <div class="bg-dark-grey fixed -inset-0 grid">
-        <div class="relative flex flex-row justify-between mx-auto max-w-screen-xl p-10 w-screen">
-          <div class="w-96">
+      <div class="bg-dark-grey fixed -inset-0">
+        <div class="flex flex-row justify-between mx-auto max-w-screen-xl px-10 mt-10 w-screen gap-36">
+          <div>
             <div class="text-white text-5xl">Hi, I’m Matt Beiswenger</div>
             <div class="text-white pt-4 leading-7 text-lg font-light">
               I’m a software engineer at{' '}
@@ -48,7 +48,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div>
+          <div class="justify-self-end">
             <div class="text-white text-2xl justify-self-start">Projects</div>
             <div class="grid grid-flow-row gap-y-4 pt-4">
               <div class="w-96 h-10 bg-light-grey rounded-lg"></div>
