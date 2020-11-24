@@ -1,4 +1,4 @@
-function ProfileLink({ url, children }) {
+function SocialLink({ url, children }) {
   return (
     <a
       href={url}
@@ -11,4 +11,4 @@ function ProfileLink({ url, children }) {
   )
 }
 
-export default ProfileLink
+export default SocialLink

@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import CustomLink from '../components/custom-link'
+import InlineLink from '../components/inline-link'
 import TwitterLogo from '../components/twitter-logo'
 import InstagramLogo from '../components/instagram-logo'
 import GitHubLogo from '../components/github-logo'
-import ProfileLink from '../components/profile-link'
+import SocialLink from '../components/social-link'
 
 export default function Home() {
   return (
@@ -24,27 +24,27 @@ export default function Home() {
             <div class="text-white text-5xl">Hi, I’m Matt Beiswenger</div>
             <div class="text-white pt-4 leading-7 text-lg font-light">
               I’m a software engineer at{' '}
-              <CustomLink url="https://topbloc.com/">👨🏼‍💻 TopBloc</CustomLink>{' '}
+              <InlineLink url="https://topbloc.com/">👨🏼‍💻 TopBloc</InlineLink>{' '}
               where I work across our whole stack including Ember, Django, and
               Java. I enjoy creating declarative, simple code (conditionals are
               my kryptonite) and I share what I learn on my blog{' '}
-              <CustomLink>📓 something.io</CustomLink>. When I’m not coding, you
+              <InlineLink>📓 something.io</InlineLink>. When I’m not coding, you
               can find me walking along the Chicago lakefront with my
               goldendoodle{' '}
-              <CustomLink url="https://www.instagram.com/p/CCABThOhGm4/">
+              <InlineLink url="https://www.instagram.com/p/CCABThOhGm4/">
                 🐕 Charlie
-              </CustomLink>
+              </InlineLink>
               .
               <div class="pt-4 flex flex-row gap-3">
-                <ProfileLink url="https://github.com/mattbeiswenger">
+                <SocialLink url="https://github.com/mattbeiswenger">
                   <GitHubLogo />
-                </ProfileLink>
-                <ProfileLink url="https://twitter.com/mattbeiswenger">
+                </SocialLink>
+                <SocialLink url="https://twitter.com/mattbeiswenger">
                   <TwitterLogo />
-                </ProfileLink>
-                <ProfileLink url="https://www.instagram.com/matt_beiswenger">
+                </SocialLink>
+                <SocialLink url="https://www.instagram.com/matt_beiswenger">
                   <InstagramLogo />
-                </ProfileLink>
+                </SocialLink>
               </div>
             </div>
           </div>
