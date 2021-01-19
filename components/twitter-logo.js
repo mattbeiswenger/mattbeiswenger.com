@@ -5,13 +5,13 @@ function TwitterLogo() {
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      class="feather feather-twitter"
+      className="feather feather-twitter"
       style={{
         margin: 0,
         padding: 0,
         fill: 'none',
-        'stroke-linejoin': 'round',
-        'stroke-width': 2,
+        strokeLinejoin: 'round',
+        strokeWidth: 2,
         stroke: 'currentColor',
       }}
     >

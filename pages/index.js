@@ -18,24 +18,29 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-      <div class="bg-dark-grey fixed -inset-0">
-        <div class="flex flex-row justify-between mx-auto max-w-screen-xl px-10 mt-10 w-screen gap-36">
+      <div className="bg-dark-grey fixed -inset-0">
+        <div className="flex flex-row justify-between mx-auto max-w-screen-xl px-10 mt-10 w-screen gap-36">
           <div>
-            <div class="text-white text-5xl">Hi, I’m Matt Beiswenger</div>
-            <div class="text-white pt-4 leading-7 text-lg font-light">
+            <div className="text-white text-5xl">Hi, I’m Matt Beiswenger</div>
+            <div className="text-white pt-4 leading-7 text-lg font-light">
               I’m a software engineer at{' '}
-              <InlineLink url="https://topbloc.com/">👨🏼‍💻 TopBloc</InlineLink>{' '}
+              <InlineLink url="https://topbloc.com/" passHref>
+                👨🏼‍💻 TopBloc
+              </InlineLink>{' '}
               where I work across our whole stack including Ember, Django, and
               Java. I enjoy creating declarative, simple code (conditionals are
-              my kryptonite) and I share what I learn on my blog{' '}
-              <InlineLink>📓 something.io</InlineLink>. When I’m not coding, you
-              can find me walking along the Chicago lakefront with my
-              goldendoodle{' '}
-              <InlineLink url="https://www.instagram.com/p/CCABThOhGm4/">
+              my kryptonite), and I share what I learn on my{' '}
+              <InlineLink url="/blog"> 📓 blog </InlineLink>. When I’m not
+              coding, you can find me walking along the Chicago lakefront with
+              my goldendoodle{' '}
+              <InlineLink
+                url="https://www.instagram.com/p/CCABThOhGm4/"
+                passHref
+              >
                 🐕 Charlie
               </InlineLink>
               .
-              <div class="pt-4 flex flex-row gap-3">
+              <div className="pt-4 flex flex-row gap-3">
                 <SocialLink url="https://github.com/mattbeiswenger">
                   <GitHubLogo />
                 </SocialLink>
@@ -48,11 +53,13 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div class="justify-self-end">
-            <div class="text-white text-2xl justify-self-start">Projects</div>
-            <div class="grid grid-flow-row gap-y-4 pt-4">
-              <div class="w-96 h-10 bg-light-grey rounded-lg"></div>
-              <div class="w-96 h-10 bg-light-grey rounded-lg"></div>
+          <div className="justify-self-end">
+            <div className="text-white text-2xl justify-self-start">
+              Projects
+            </div>
+            <div className="grid grid-flow-row gap-y-4 pt-4">
+              <div className="w-96 h-10 bg-light-grey rounded-lg"></div>
+              <div className="w-96 h-10 bg-light-grey rounded-lg"></div>
             </div>
           </div>
         </div>

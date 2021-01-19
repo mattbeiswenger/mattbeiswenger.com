@@ -5,11 +5,11 @@ function InstagramLogo() {
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      class="feather feather-instagram"
+      className="feather feather-instagram"
       style={{
         fill: 'none',
-        'stroke-linejoin': 'round',
-        'stroke-width': 2,
+        strokeLinejoin: 'round',
+        strokeWidth: 2,
         stroke: 'currentColor',
       }}
     >
