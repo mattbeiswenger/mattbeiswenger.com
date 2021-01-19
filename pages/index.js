@@ -24,7 +24,7 @@ export default function Home() {
             <div className="text-white text-5xl">Hi, I’m Matt Beiswenger</div>
             <div className="text-white pt-4 leading-7 text-lg font-light">
               I’m a software engineer at{' '}
-              <InlineLink url="https://topbloc.com/" passHref>
+              <InlineLink url="https://topbloc.com/" newTab>
                 👨🏼‍💻 TopBloc
               </InlineLink>{' '}
               where I work across our whole stack including Ember, Django, and
@@ -33,10 +33,7 @@ export default function Home() {
               <InlineLink url="/blog"> 📓 blog </InlineLink>. When I’m not
               coding, you can find me walking along the Chicago lakefront with
               my goldendoodle{' '}
-              <InlineLink
-                url="https://www.instagram.com/p/CCABThOhGm4/"
-                passHref
-              >
+              <InlineLink url="https://www.instagram.com/p/CCABThOhGm4/" newTab>
                 🐕 Charlie
               </InlineLink>
               .
