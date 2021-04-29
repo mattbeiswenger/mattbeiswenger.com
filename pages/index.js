@@ -1,9 +1,5 @@
 import Head from 'next/head'
 import InlineLink from '../components/inline-link'
-import TwitterLogo from '../components/svg/twitter-logo'
-import InstagramLogo from '../components/svg/instagram-logo'
-import GitHubLogo from '../components/svg/github-logo'
-import SocialLink from '../components/social-link'
 
 export default function Home() {
   return (
