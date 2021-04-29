@@ -1,6 +1,8 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   purge: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
     extend: {
       colors: {
@@ -9,15 +11,7 @@ module.exports = {
         'light-grey-hover': '#31383A',
       },
       fontFamily: {
-        sans: [
-          'Inter',
-          'system-ui',
-          '-apple-system',
-          'Roboto',
-          'Helvetica',
-          'Arial',
-          'sans-serif',
-        ],
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
     },
   },
