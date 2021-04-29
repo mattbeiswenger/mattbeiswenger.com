@@ -19,10 +19,10 @@ export default function Home() {
         />
       </Head>
       <div className="bg-dark-grey fixed -inset-0">
-        <div className="flex flex-row justify-between mx-auto max-w-screen-xl px-10 mt-10 w-screen gap-36">
+        <div className="flex flex-row justify-between mx-auto max-w-screen-xl px-10 mt-20 w-screen gap-36">
           <div>
             <div className="text-white text-5xl">Hi, I’m Matt Beiswenger</div>
-            <div className="text-white pt-4 leading-7 text-lg font-light">
+            <div className="text-white mt-8 leading-8 text-lg font-light">
               I’m a software engineer at{' '}
               <InlineLink url="https://topbloc.com/" newTab>
                 👨🏼‍💻 TopBloc
