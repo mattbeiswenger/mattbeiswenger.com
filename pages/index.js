@@ -33,6 +33,12 @@ export default function Home() {
               .
             </div>
           </div>
+          <div className="text-white text-2xl mt-10">Articles</div>
+          <div className="text-white font-light">
+            Fleshed out ideas and tutorials
+          </div>
+          <div className="text-white text-2xl mt-10">Notes</div>
+          <div className="text-white font-light">Scramble think</div>
         </div>
       </div>
     </>
