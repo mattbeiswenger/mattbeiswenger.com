@@ -6,13 +6,6 @@ export default function Home() {
     <>
       <Head>
         <title>Matt Beiswenger</title>
-        <link rel="icon" href="/favicon-16x16.png" />
-        <link rel="icon" href="/favicon-32x32.png" />
-        <link rel="icon" href="/favicon-96x96.png" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
       </Head>
       <div className="bg-dark-grey fixed -inset-0">
         <div className="max-w-5xl px-20 mt-24">
