@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import InlineLink from '../components/inline-link'
+import InlineLink from '@/components/inline-link'
 
 export default function Home() {
   return (
