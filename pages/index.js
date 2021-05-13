@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import InlineLink from '@/components/inline-link'
+import Container from '@/components/container'
 
 export default function Home() {
   return (
@@ -7,8 +8,8 @@ export default function Home() {
       <Head>
         <title>Matt Beiswenger</title>
       </Head>
-      <div className="bg-dark-grey fixed -inset-0">
-        <div className="max-w-5xl px-20 mt-24">
+      <Container>
+        <div className="max-w-5xl px-20">
           <div>
             <div className="text-white text-5xl">Hi, I’m Matt Beiswenger</div>
             <div className="text-white mt-8 leading-8 text-lg font-light">
@@ -33,7 +34,7 @@ export default function Home() {
           <div className="text-white text-2xl mt-10">Notes</div>
           <div className="text-white font-light">Scramble think</div>
         </div>
-      </div>
+      </Container>
     </>
   )
 }
