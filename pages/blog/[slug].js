@@ -9,7 +9,7 @@ export default function Post({ source, metadata }) {
   return (
     <>
       <Head>
-        <title>Testing 123</title>
+        <title>{metadata.title}</title>
       </Head>
       <article className="prose">
         <MDXRemote {...source} components={components} />

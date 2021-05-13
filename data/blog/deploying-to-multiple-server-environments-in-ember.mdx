@@ -1,0 +1,111 @@
+---
+title: Deploying to Multiple Server Environments in Ember
+---
+
+# Deploying to Multiple Server Environments in Ember
+
+Ember CLI allows you to build your Ember application for different environments
+by passing a `--environment` option to the `ember build` command. For example, if
+we wanted to build for a production environment we would run the command
+`ember build --environment production`.
+
+We can then configure our environment variables in `config/environment.js`. If
+we wanted to configure an API endpoint for different environments, we could
+do the following:
+
+```javascript
+import ENV from 'my-app/config/environment'
+
+if (ENV.environment === 'development') {
+  ENV.APP.API_HOST = 'http://localhost:8000'
+}
+
+if (ENV.environment === 'production') {
+  ENV.APP.API_HOST = 'https://www.myserver.com/api'
+}
+```
+
+This works great for applications that only deploy to one server. But what if
+we wanted to deploy to a staging server? You might think that you can do this:
+
+```javascript
+import ENV from 'my-app/config/environment'
+
+// DO NOT DO THIS
+if (ENV.environment === 'staging') {
+  ENV.APP.API_HOST = 'https://staging.myserver.com/api'
+}
+```
+
+This will deceivingly work, but it's bad practice. This is because Ember
+actually ships with only three build environments:
+
+1. `test`
+2. `development`
+3. `production`
+
+When one of these environments aren't passed as the `--environment` option,
+Ember CLI defaults to the development environment but will still run the
+logic for the passed environment in `config/environments.js`. So,
+in the example above, the API endpoint will correctly be set
+to `https://staging.myserver.com/api`, but the application will be built as a
+development environment. This means that we lose important benefits of building as
+a production environment such as [minifying](https://cli.emberjs.com/release/advanced-use/asset-compilation/#minifying)
+and [fingerprinting](https://cli.emberjs.com/release/advanced-use/asset-compilation/#fingerprintingandcdnurls) files.
+
+The problem is that the example code above **conflates the Ember build environment
+with the deployment environment**. This is fine if you have one production
+environment but becomes a problem when you want to deploy to multiple
+environments. So what are we supposed to do? The solution is to use the
+popular community addon `ember-cli-deploy`.
+
+ember-cli-deploy allows us to separate the build environment from the
+deployment environment by exposing an ember deploy command. You can install
+the addon by running ember install ember-cli-deploy. After installation, a
+config/deploy.js file will automatically be created with the following content:
+
+```javascript
+/* eslint-env node */
+'use strict'
+
+module.exports = function (deployTarget) {
+  let ENV = {
+    build: {},
+    // include other plugin configuration that applies to all deploy targets here
+  }
+
+  if (deployTarget === 'development') {
+    ENV.build.environment = 'development'
+    // configure other plugins for development deploy target here
+  }
+
+  if (deployTarget === 'staging') {
+    ENV.build.environment = 'production'
+    // configure other plugins for staging deploy target here
+  }
+
+  if (deployTarget === 'production') {
+    ENV.build.environment = 'production'
+    // configure other plugins for production deploy target here
+  }
+
+  // Note: if you need to build some configuration asynchronously, you can return
+  // a promise that resolves with the ENV object instead of returning the
+  // ENV object synchronously.
+  return ENV
+}
+```
+
+As you can see, we now have access to a `deployTarget` variable separate from the
+build environment. We provide this variable by passing it to the
+`ember deploy` command. So, for example, if we wanted to deploy to our
+staging environment we would run `ember deploy staging`.
+
+And that's it! I know that the difference between build and deploy environments
+was not entirely obvious to me when I first started deploying Ember
+applications so hopefully this helped to distill some confusion.
+And, now that you have ember-cli-deploy installed, I would highly suggest
+looking at the other capabilities of the addon. It has a
+[rich plugin ecosystem](http://ember-cli-deploy.com/plugins/) that can help
+you with tasks like gzipping, uploading to S3, sending deploy
+notifications, and more.
