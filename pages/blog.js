@@ -1,9 +1,25 @@
 import Container from '@/components/container'
+import { getAllFilesMetadata } from '@/lib/mdx'
+import Link from 'next/link'
 
-export default function Home() {
+export default function Home({ posts }) {
   return (
     <Container>
-      <div className="text-white">This is my blog</div>
+      {posts.map((post) => {
+        return (
+          <Link href={`blog/${post.slug}`}>
+            <a className="text-white">{post.title}</a>
+          </Link>
+        )
+      })}
     </Container>
   )
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      posts: await getAllFilesMetadata('blog'),
+    },
+  }
 }

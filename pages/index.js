@@ -9,7 +9,7 @@ export default function Home() {
         <title>Matt Beiswenger</title>
       </Head>
       <Container>
-        <div className="max-w-5xl px-20">
+        <div className="">
           <div>
             <div className="text-white text-5xl">Hi, I’m Matt Beiswenger</div>
             <div className="text-white mt-8 leading-8 text-lg font-light">
@@ -27,12 +27,6 @@ export default function Home() {
               .
             </div>
           </div>
-          <div className="text-white text-2xl mt-10">Articles</div>
-          <div className="text-white font-light">
-            Fleshed out ideas and tutorials
-          </div>
-          <div className="text-white text-2xl mt-10">Notes</div>
-          <div className="text-white font-light">Scramble think</div>
         </div>
       </Container>
     </>

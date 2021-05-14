@@ -8,7 +8,7 @@ export default function Container({ children }) {
           <a className="text-white justify-self-end">Blog</a>
         </Link>
       </div>
-      {children}
+      <div className="max-w-5xl px-20">{children}</div>
     </div>
   )
 }
