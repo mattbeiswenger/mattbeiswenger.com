@@ -12,7 +12,7 @@ export default function Post({ source, metadata }) {
       <Head>
         <title>{metadata.title}</title>
       </Head>
-      <article className="prose prose-pink dark:prose-dark">
+      <article className="prose prose-lg prose-pink dark:prose-dark">
         <MDXRemote {...source} components={components} />
       </article>
     </Container>
