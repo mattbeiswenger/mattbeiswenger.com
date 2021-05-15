@@ -5,8 +5,11 @@ export default function Container({ children }) {
   const { theme, setTheme } = useTheme()
 
   return (
-    <div className="dark:bg-dark-grey -inset-0">
+    <div className="dark:bg-dark-grey -inset-0 mb-40">
       <div className="p-20 pt-10 grid gap-12 grid-flow-col justify-end">
+        <Link href="/">
+          <a className="dark:text-white">Home</a>
+        </Link>
         <Link href="/blog">
           <a className="dark:text-white">Blog</a>
         </Link>
@@ -43,7 +46,7 @@ export default function Container({ children }) {
           </svg>
         </button>
       </div>
-      <div className="max-w-5xl px-20">{children}</div>
+      <div className="max-w-3xl mx-auto">{children}</div>
     </div>
   )
 }
