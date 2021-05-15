@@ -2,19 +2,20 @@ import { getFileBySlug, getFiles } from '@/lib/mdx'
 import { MDXRemote } from 'next-mdx-remote'
 import InlineLink from '@/components/inline-link'
 import Head from 'next/head'
+import Container from '@/components/container'
 
 const components = { InlineLink }
 
 export default function Post({ source, metadata }) {
   return (
-    <>
+    <Container>
       <Head>
         <title>{metadata.title}</title>
       </Head>
-      <article className="prose">
+      <article className="prose prose-pink dark:prose-dark">
         <MDXRemote {...source} components={components} />
       </article>
-    </>
+    </Container>
   )
 }
 

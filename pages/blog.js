@@ -8,7 +8,7 @@ export default function Home({ posts }) {
       {posts.map((post) => {
         return (
           <Link href={`blog/${post.slug}`}>
-            <a className="text-white">{post.title}</a>
+            <a className="dark:text-white">{post.title}</a>
           </Link>
         )
       })}

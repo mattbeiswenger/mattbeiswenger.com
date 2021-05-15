@@ -11,8 +11,10 @@ export default function Home() {
       <Container>
         <div className="">
           <div>
-            <div className="text-white text-5xl">Hi, I’m Matt Beiswenger</div>
-            <div className="text-white mt-8 leading-8 text-lg font-light">
+            <div className="dark:text-white text-5xl">
+              Hi, I’m Matt Beiswenger
+            </div>
+            <div className="dark:text-white mt-8 leading-8 text-lg font-light">
               I’m a software engineer at{' '}
               <InlineLink url="https://topbloc.com/" newTab>
                 👨🏼‍💻 TopBloc
