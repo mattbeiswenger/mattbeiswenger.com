@@ -7,12 +7,12 @@ export default function Home({ posts }) {
     <Container>
       {posts.map((post) => {
         return (
-          <div className="grid gap-1 w-full">
-            <Link href={`blog/${post.slug}`}>
+          <Link href={`blog/${post.slug}`}>
+            <div className="cursor-pointer grid gap-1 w-full">
               <a className="dark:text-white text-2xl">{post.title}</a>
-            </Link>
-            <div className="text-gray-500">{post.description}</div>
-          </div>
+              <div className="text-gray-500">{post.description}</div>
+            </div>
+          </Link>
         )
       })}
     </Container>
