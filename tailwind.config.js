@@ -17,12 +17,12 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.gray.300'),
+            color: theme('colors.gray.700'),
           },
         },
         dark: {
           css: {
-            color: theme('colors.gray.800'),
+            color: theme('colors.gray.300'),
           },
         },
       }),
