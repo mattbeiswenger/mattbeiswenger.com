@@ -5,7 +5,7 @@ export default function Container({ children }) {
   const { theme, setTheme } = useTheme()
 
   return (
-    <div className="mb-32">
+    <div className="mb-32 antialiased">
       <div className="p-20 pt-10 grid gap-12 grid-flow-col justify-end">
         <Link href="/">
           <a className="dark:text-white">Home</a>
