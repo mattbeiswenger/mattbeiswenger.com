@@ -11,10 +11,10 @@ export default function Home() {
       <Container>
         <div className="">
           <div>
-            <div className="dark:text-white text-4xl">
+            <div className="text-5xl font-semibold">
               Hi, I’m Matt Beiswenger
             </div>
-            <div className="mt-8 leading-8 text-gray-400 text-lg">
+            <div className="mt-7 leading-8 dark:text-gray-400 text-gray-700 text-lg">
               I’m a software engineer at{' '}
               <InlineLink url="https://topbloc.com/" newTab>
                 👨🏼‍💻 TopBloc

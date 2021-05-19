@@ -9,8 +9,12 @@ export default function Home({ posts }) {
         return (
           <Link key={post.slug} href={`blog/${post.slug}`}>
             <div className="cursor-pointer grid gap-1 w-full">
-              <a className="dark:text-white text-2xl">{post.title}</a>
-              <div className="text-gray-500">{post.description}</div>
+              <a className="dark:text-white text-2xl font-medium">
+                {post.title}
+              </a>
+              <div className="dark:text-gray-400 text-gray-600">
+                {post.description}
+              </div>
             </div>
           </Link>
         )
