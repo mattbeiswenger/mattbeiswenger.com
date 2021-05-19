@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const { fontFamily } = require('tailwindcss/defaultTheme')
 
 module.exports = {
   mode: 'jit',
@@ -10,26 +10,11 @@ module.exports = {
         'dark-grey': '#191C1E',
         'light-grey': '#292E30',
         'light-grey-hover': '#31383A',
+        'one-dark': '#282c34',
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter', ...fontFamily.sans],
       },
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            color: theme('colors.gray.700'),
-          },
-        },
-        dark: {
-          css: {
-            color: theme('colors.gray.300'),
-          },
-        },
-      }),
     },
   },
-  variants: {
-    typography: ['dark'],
-  },
-  plugins: [require('@tailwindcss/typography')],
 }

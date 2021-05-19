@@ -9,8 +9,10 @@ export default function Post({ source, metadata }) {
       <Head>
         <title>{metadata.title}</title>
       </Head>
-      <h1 className="font-bold text-3xl md:text-5xl mb-4">{metadata.title}</h1>
-      <article className="mx-auto prose prose-pink dark:prose-dark">
+      <article className="md:leading-relaxed max-w-prose mx-auto text-gray-700 dark:text-gray-300">
+        <h1 className="mt-8 text-3xl font-semibold md:text-4xl">
+          {metadata.title}
+        </h1>
         <MDXRemote {...source} />
       </article>
     </Container>

@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@mdx-js/react": "^1.6.22",
-    "@tailwindcss/typography": "^0.4.0",
     "gray-matter": "^4.0.3",
     "next": "10.2.0",
     "next-mdx-remote": "^3.0.1",

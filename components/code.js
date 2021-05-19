@@ -16,6 +16,7 @@ const theme = {
   hljs: {
     display: 'block',
     overflowX: 'auto',
+    padding: '0.5em',
     color: '#abb2bf',
     background: '#282c34',
   },
