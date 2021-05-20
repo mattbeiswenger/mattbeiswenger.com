@@ -3,7 +3,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 export default function Code({ language, children }) {
   return (
     <SyntaxHighlighter
-      className={`language-${language} subpixel-antialiased leading-relaxed text-sm- md:text-sm px-20 py-4 overflow-auto scrolling-touch`}
+      className={`language-${language} subpixel-antialiased leading-relaxed text-sm scrolling-touch`}
       style={theme}
       {...language}
     >

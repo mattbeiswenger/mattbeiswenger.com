@@ -6,17 +6,10 @@ export default function Container({ children }) {
 
   return (
     <div className="mb-32 antialiased">
-      <div className="p-20 pt-10 grid gap-12 grid-flow-col justify-end">
-        <Link href="/">
-          <a className="dark:text-white">Home</a>
-        </Link>
-        <Link href="/blog">
-          <a className="dark:text-white">Blog</a>
-        </Link>
-        <button
-          className="dark:text-white"
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        >
+      <div className="mx-auto py-10 px-10 w-full max-w-4xl grid gap-10 grid-flow-col justify-end">
+        <Link href="/">Home</Link>
+        <Link href="/blog">Blog</Link>
+        <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -46,7 +39,7 @@ export default function Container({ children }) {
           </svg>
         </button>
       </div>
-      <div className="max-w-3xl mx-auto">{children}</div>
+      <div className="max-w-3xl px-8 mx-auto">{children}</div>
     </div>
   )
 }
