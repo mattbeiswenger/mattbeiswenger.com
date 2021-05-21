@@ -4,7 +4,10 @@ import Head from 'next/head'
 import Container from '@/components/container'
 import Date from '@/components/date'
 
-export default function Post({ source, metadata, readingTime }) {
+const editUrl = (slug) =>
+  `https://github.com/mattbeiswenger/mattbeiswenger.com/edit/main/data/blog/${slug}.mdx`
+
+export default function Post({ source, metadata }) {
   return (
     <Container>
       <Head>
@@ -15,10 +18,20 @@ export default function Post({ source, metadata, readingTime }) {
         <div className="mt-2 flex gap-2 text-gray-400">
           <Date dateString={metadata.published} />
           <div>/</div>
-          <div>{readingTime}</div>
+          <div>{metadata.readingTime}</div>
         </div>
         <MDXRemote {...source} />
       </article>
+      <div className="max-w-prose pt-8 mx-auto">
+        <a
+          href={editUrl(metadata.slug)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-gray-500"
+        >
+          Edit on GitHub
+        </a>
+      </div>
     </Container>
   )
 }
