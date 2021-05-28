@@ -6,7 +6,7 @@ import MDXComponents from '@/components/mdx-components'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider enableSystem={false} defaultTheme="dark" attribute="class">
       <MDXProvider components={MDXComponents}>
         <Component {...pageProps} />
       </MDXProvider>
