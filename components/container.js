@@ -1,11 +1,20 @@
 import Link from 'next/link'
+import Head from 'next/head'
 import { useTheme } from 'next-themes'
 
-export default function Container({ children }) {
+export default function Container({ children, ...customMeta }) {
   const { theme, setTheme } = useTheme()
+
+  const meta = {
+    title: 'Matt Beiswenger',
+    ...customMeta,
+  }
 
   return (
     <div className="mb-32 antialiased">
+      <Head>
+        <title>{meta.title}</title>
+      </Head>
       <div className="mx-auto py-10 px-10 w-full max-w-4xl grid gap-10 grid-flow-col justify-end">
         <Link href="/">Home</Link>
         <Link href="/blog">Blog</Link>
