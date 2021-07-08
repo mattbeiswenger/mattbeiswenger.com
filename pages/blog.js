@@ -24,9 +24,10 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
+  const posts = await getAllFilesMetadata('blog')
   return {
     props: {
-      posts: await getAllFilesMetadata('blog'),
+      posts: posts.filter((post) => post.published),
     },
   }
 }
