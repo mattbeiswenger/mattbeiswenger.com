@@ -1,7 +1,7 @@
 import { getFileBySlug, getFiles } from '@/lib/mdx'
 import { MDXRemote } from 'next-mdx-remote'
-import Container from '@/components/container'
-import Date from '@/components/date'
+import Container from '@/components/Container'
+import Date from '@/components/Date'
 import Image from 'next/image'
 import Link from 'next/link'
 

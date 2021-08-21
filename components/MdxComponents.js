@@ -1,4 +1,4 @@
-import Code from '@/components/code'
+import Code from '@/components/Code'
 import Link from 'next/link'
 
 const CustomLink = (props) => {

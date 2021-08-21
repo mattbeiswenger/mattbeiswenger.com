@@ -1,5 +1,5 @@
-import InlineLink from '@/components/inline-link'
-import Container from '@/components/container'
+import InlineLink from '@/components/InlineLink'
+import Container from '@/components/Container'
 
 export default function Home() {
   return (

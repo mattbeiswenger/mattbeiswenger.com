@@ -1,4 +1,4 @@
-import Container from '@/components/container'
+import Container from '@/components/Container'
 import { getAllFilesMetadata } from '@/lib/mdx'
 import Link from 'next/link'
 
