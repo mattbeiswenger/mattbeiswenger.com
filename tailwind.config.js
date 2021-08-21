@@ -1,4 +1,5 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
 module.exports = {
   purge: ['./pages/**/*.js', './components/**/*.js'],
@@ -6,6 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        gray: colors.trueGray,
         'one-dark': '#282c34',
       },
       fontFamily: {
