@@ -5,6 +5,9 @@ import Link from 'next/link'
 export default function Home({ posts }) {
   return (
     <Container title="Blog - Matt Beiswenger">
+      <div className="text-3xl leading-10 md:text-5xl mb-6 font-semibold">
+        Blog
+      </div>
       {posts.map((post) => {
         return (
           <Link key={post.slug} href={`blog/${post.slug}`}>

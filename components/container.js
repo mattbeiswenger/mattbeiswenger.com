@@ -15,7 +15,7 @@ export default function Container({ children, ...customMeta }) {
       <Head>
         <title>{meta.title}</title>
       </Head>
-      <div className="mx-auto py-10 px-10 w-full max-w-4xl grid gap-10 grid-flow-col justify-end">
+      <div className="mx-auto py-16 px-10 w-full max-w-4xl grid gap-10 grid-flow-col justify-end">
         <Link href="/">Home</Link>
         <Link href="/blog">Blog</Link>
         <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
