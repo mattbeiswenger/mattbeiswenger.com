@@ -5,9 +5,9 @@ export default function Home() {
   return (
     <>
       <Container title="Matt Beiswenger">
-        <di className="text-3xl leading-10 md:text-5xl font-semibold">
+        <div className="text-3xl leading-10 md:text-5xl font-semibold">
           Hi, I’m Matt Beiswenger
-        </di>
+        </div>
         <div className="mt-7 leading-loose dark:text-gray-400 text-gray-700">
           I’m a software engineer at{' '}
           <InlineLink url="https://topbloc.com/" newTab>
