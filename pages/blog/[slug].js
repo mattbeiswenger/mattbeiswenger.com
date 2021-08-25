@@ -58,7 +58,7 @@ export default function Post({ source, metadata }) {
 export async function getStaticPaths() {
   const posts = await getFiles('blog')
   return {
-    paths: posts.map((p) => ({
+    paths: posts.filter(p => p.published).map((p) => ({
       params: {
         slug: p.replace(/\.mdx/, ''),
       },
