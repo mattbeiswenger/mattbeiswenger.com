@@ -32,7 +32,7 @@ export async function getStaticProps() {
   const posts = await getAllFilesMetadata('blog')
   return {
     props: {
-      posts: posts.filter((post) => post.published),
+      posts,
     },
   }
 }
