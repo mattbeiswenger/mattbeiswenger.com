@@ -17,9 +17,9 @@ const theme = {
   "hljs": {
     "display": "block",
     "overflowX": "auto",
-    "padding": "1rem 1.5rem",
+    "padding": "1.5rem 1.5rem 0 1.5rem",
     "color": "#abb2bf",
-    "background": "#282c34"
+    "background-color": "#282c34",
   },
   "hljs-comment": {
     "color": "#5c6370",
