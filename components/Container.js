@@ -12,22 +12,29 @@ export default function Container({ children, ...customMeta }) {
   }
 
   return (
-    <div className="mb-32 antialiased">
+    <div className="max-w-6xl m-auto mb-32 antialiased">
       <Head>
         <title>{meta.title}</title>
       </Head>
-      <div className="mx-auto py-16 px-10 w-full max-w-4xl grid gap-10 grid-flow-col justify-end">
-        <Link href="/">Home</Link>
-        <Link href="/blog">Blog</Link>
-        <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-          {theme === 'dark' ? (
-            <SunIcon className="h-5 w-5" />
-          ) : (
-            <MoonIcon className="h-5 w-5" />
-          )}
-        </button>
+      <div className="flex pt-16 pb-20">
+        <Link href="/">
+          <a className="text-2xl font-bold whitespace-nowrap logo">
+            Matt Beiswenger
+          </a>
+        </Link>
+        <nav className="flex items-center justify-end w-full gap-10 text-lg font-semibold">
+          <Link href="/">Home</Link>
+          <Link href="/blog">Blog</Link>
+          <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+            {theme === 'dark' ? (
+              <SunIcon className="w-5 h-5" />
+            ) : (
+              <MoonIcon className="w-5 h-5" />
+            )}
+          </button>
+        </nav>
       </div>
-      <div className="max-w-3xl px-8 mx-auto">{children}</div>
+      <div className="max-w-3xl mx-auto">{children}</div>
     </div>
   )
 }

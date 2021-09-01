@@ -5,10 +5,10 @@ export default function Home() {
   return (
     <>
       <Container title="Matt Beiswenger">
-        <div className="text-3xl leading-10 md:text-5xl font-semibold">
+        <div className="text-4xl font-semibold leading-10 md:text-5xl">
           Hi, I’m Matt Beiswenger
         </div>
-        <div className="mt-7 leading-loose dark:text-gray-400 text-gray-700">
+        <div className="text-xl leading-loose text-gray-900 mt-7 dark:text-gray-100">
           I’m a software engineer at{' '}
           <InlineLink url="https://topbloc.com/" newTab>
             👨🏼‍💻 TopBloc
@@ -21,6 +21,30 @@ export default function Home() {
             🐕 Charlie
           </InlineLink>
           .
+        </div>
+        <div className="flex gap-5 pt-5 text-lg text-gray-600 dark:text-gray-400">
+          <a
+            href="https://github.com/mattbeiswenger"
+            rel="noopener"
+            target="_blank"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://twitter.com/mattbeiswenger"
+            rel="noopener"
+            target="_blank"
+          >
+            Twitter
+          </a>
+          <a
+            href="https://linkedin.com/in/mattbeiswenger"
+            rel="noopener"
+            target="_blank"
+          >
+            LinkedIn
+          </a>
+          <a href="mailto:mattbeis@yahoo.com">Email</a>
         </div>
       </Container>
     </>
