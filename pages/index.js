@@ -3,6 +3,7 @@ import Container from '@/components/Container'
 import { getAllFilesMetadata } from '@/lib/mdx'
 import Image from 'next/image'
 import Link from 'next/link'
+import Date from '@/components/Date'
 
 export default function Home({ articles }) {
   return (
@@ -56,21 +57,21 @@ export default function Home({ articles }) {
           <div className="grid grid-cols-2 gap-10 mt-5">
             {articles.map((article) => {
               return (
-                <>
-                  <div>
-                    <Link href={`/blog/${article.slug}`}>
-                      <a className="block transition responsive-image ring-opacity-80 hover:ring-2 ring-offset-4 dark:ring-offset-gray-900 ring-red-400 rounded-xl">
-                        <Image src={article.image} layout="fill" />
-                      </a>
-                    </Link>
-                    <div className="mt-3 text-xl font-medium">
+                <Link href={`/blog/${article.slug}`}>
+                  <a className="p-4 transition bg-gray-800 rounded-xl ring-opacity-80 hover:ring-2 ring-offset-4 dark:ring-offset-gray-900 ring-red-400">
+                    <div className="block rounded-xl responsive-image">
+                      <Image src={article.image} layout="fill" />
+                    </div>
+                    <div className="flex gap-2 mt-3 text-sm text-gray-400">
+                      <Date dateString={article.published} />
+                      <div>&#x2022;</div>
+                      <div>{article.readingTime}</div>
+                    </div>
+                    <div className="mt-2 text-xl font-medium">
                       {article.title}
                     </div>
-                    <div className="mt-1 text-sm text-gray-400 line-clamp-2">
-                      {article.description}
-                    </div>
-                  </div>
-                </>
+                  </a>
+                </Link>
               )
             })}
           </div>

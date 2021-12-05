@@ -18,7 +18,7 @@ export default function Post({ source, metadata }) {
           </h1>
           <div className="flex gap-2 mt-2 text-gray-400">
             <Date dateString={metadata.published} />
-            <div>/</div>
+            <div>&#x2022;</div>
             <div>{metadata.readingTime}</div>
           </div>
         </header>
