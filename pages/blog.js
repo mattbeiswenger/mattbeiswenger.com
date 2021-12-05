@@ -1,5 +1,5 @@
 import Container from '@/components/Container'
-import { getAllFilesMetadata } from '@/lib/mdx'
+import { getAllPostsMetadata } from '@/lib/mdx'
 import Link from 'next/link'
 
 export default function Home({ posts }) {
@@ -29,7 +29,7 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllFilesMetadata('blog')
+  const posts = await getAllPostsMetadata('blog')
   return {
     props: {
       posts,

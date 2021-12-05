@@ -1,4 +1,4 @@
-import { getFileBySlug, getFiles } from '@/lib/mdx'
+import { getPostBySlug, getPublishedPosts } from '@/lib/mdx'
 import { MDXRemote } from 'next-mdx-remote'
 import Container from '@/components/Container'
 import Date from '@/components/Date'
@@ -64,7 +64,7 @@ export default function Post({ source, metadata }) {
 }
 
 export async function getStaticPaths() {
-  const posts = await getFiles('blog')
+  const posts = await getPublishedPosts('blog')
   return {
     paths: posts.map((p) => ({
       params: {
@@ -76,5 +76,5 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  return await getFileBySlug('blog', params.slug)
+  return await getPostBySlug('blog', params.slug)
 }

@@ -1,6 +1,6 @@
 import InlineLink from '@/components/InlineLink'
 import Container from '@/components/Container'
-import { getAllFilesMetadata } from '@/lib/mdx'
+import { getAllPostsMetadata } from '@/lib/mdx'
 import Image from 'next/image'
 import Link from 'next/link'
 import Date from '@/components/Date'
@@ -83,7 +83,7 @@ export default function Home({ articles }) {
 }
 
 export async function getStaticProps() {
-  const articles = await getAllFilesMetadata('blog')
+  const articles = await getAllPostsMetadata('blog')
   return {
     props: {
       articles,
