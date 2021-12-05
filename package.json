@@ -10,6 +10,7 @@
   "dependencies": {
     "@heroicons/react": "^1.0.4",
     "@mdx-js/react": "^1.6.22",
+    "@tailwindcss/line-clamp": "^0.2.2",
     "date-fns": "^2.21.3",
     "gray-matter": "^4.0.3",
     "next": "10.2.0",

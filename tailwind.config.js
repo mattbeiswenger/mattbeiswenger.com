@@ -15,4 +15,11 @@ module.exports = {
       },
     },
   },
+  variants: {
+    extend: {
+      ringWidth: ['hover'],
+      ringColor: ['hover'],
+    },
+  },
+  plugins: [require('@tailwindcss/line-clamp')],
 }
