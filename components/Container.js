@@ -31,7 +31,7 @@ export default function Container({ children, ...customMeta }) {
           </button>
         </nav>
       </div>
-      <div className="max-w-3xl mx-auto">{children}</div>
+      <div className="max-w-4xl mx-auto">{children}</div>
     </div>
   )
 }

@@ -11,8 +11,8 @@ const editUrl = (slug) =>
 export default function Post({ source, metadata }) {
   return (
     <Container title={metadata.title}>
-      <article className="max-w-4xl mx-auto leading-7 text-gray-800 md:leading-8 dark:text-gray-300">
-        <header>
+      <article className="mx-auto leading-7 text-gray-800 md:leading-9 dark:text-gray-300">
+        <header className="max-w-3xl mx-auto">
           <h1 className="text-2xl font-semibold md:text-4xl">
             {metadata.title}
           </h1>
@@ -22,7 +22,7 @@ export default function Post({ source, metadata }) {
             <div>{metadata.readingTime}</div>
           </div>
         </header>
-        <div className="mt-5 responsive-image">
+        <div className="mt-10 mb-14 responsive-image">
           <Image
             src={metadata.image}
             layout="fill"
@@ -31,7 +31,7 @@ export default function Post({ source, metadata }) {
           />
         </div>
         <MDXRemote {...source} />
-        <footer className="pt-8">
+        <footer className="max-w-3xl pt-8 mx-auto">
           <a
             href={editUrl(metadata.slug)}
             target="_blank"
