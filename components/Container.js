@@ -18,12 +18,9 @@ export default function Container({ children, ...customMeta }) {
       </Head>
       <div className="flex pt-16 pb-20">
         <Link href="/">
-          <a className="text-2xl font-bold whitespace-nowrap logo">
-            Matt Beiswenger
-          </a>
+          <div className="w-12 h-12 rounded-full cursor-pointer logo"></div>
         </Link>
         <nav className="flex items-center justify-end w-full gap-10 text-lg font-semibold">
-          <Link href="/">Home</Link>
           <Link href="/blog">Blog</Link>
           <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
             {theme === 'dark' ? (
