@@ -17,3 +17,19 @@
   background-color: #f3ec78;
   background-image: linear-gradient(-20deg, #f794a4 0%, #fdd6bd 100%);
 }
+
+.responsive-image {
+  width: 100%;
+}
+
+.responsive-image > div {
+  position: unset !important;
+}
+
+.responsive-image > div > img {
+  @apply rounded-xl;
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}

@@ -35,17 +35,19 @@ const MdxComponents = {
   code: ({ className, children }) => {
     const languageMatch = className && className.match('language-([^{]+)')
     return (
-      <div className="my-8 md:mx-0 overflow-hidden md:rounded-lg">
+      <div className="min-w-full my-8 overflow-hidden lg:w-full lg:rounded-lg">
         <Code language={languageMatch[1]}>{children}</Code>
       </div>
     )
   },
-  ol: (props) => <ol className="list-inside mt-4 list-decimal" {...props} />,
-  ul: (props) => <ul className="list-inside mt-4 list-disc" {...props} />,
+  ol: (props) => <ol className="mt-4 list-decimal list-inside" {...props} />,
+  ul: (props) => <ul className="mt-4 list-disc list-inside" {...props} />,
   li: (props) => <li className="mt-1" {...props} />,
   p: (props) => <p className="mt-4 lg:mt-6">{props.children}</p>,
   a: (props) => <CustomLink {...props} />,
-  h2: (props) => <h2 className="text-3xl font-semibold mt-10">{props.children}</h2>
+  h2: (props) => (
+    <h2 className="mt-10 text-3xl font-semibold">{props.children}</h2>
+  ),
 }
 
 export default MdxComponents

@@ -11,17 +11,25 @@ const editUrl = (slug) =>
 export default function Post({ source, metadata }) {
   return (
     <Container title={metadata.title}>
-      <article className="leading-7 md:leading-8 text-gray-800 max-w-prose dark:text-gray-300 mx-auto">
+      <article className="max-w-4xl mx-auto leading-7 text-gray-800 md:leading-8 dark:text-gray-300">
         <header>
           <h1 className="text-2xl font-semibold md:text-4xl">
             {metadata.title}
           </h1>
-          <div className="mt-2 flex gap-2 text-gray-400">
+          <div className="flex gap-2 mt-2 text-gray-400">
             <Date dateString={metadata.published} />
             <div>/</div>
             <div>{metadata.readingTime}</div>
           </div>
         </header>
+        <div className="mt-5 responsive-image">
+          <Image
+            src={metadata.image}
+            layout="fill"
+            alt="nighttime bonfire with sparks"
+            title="Photo by Tengyart"
+          />
+        </div>
         <MDXRemote {...source} />
         <footer className="pt-8">
           <a
@@ -32,7 +40,7 @@ export default function Post({ source, metadata }) {
           >
             Edit on GitHub
           </a>
-          <div className="grid justify-items-center mt-6">
+          <div className="grid mt-6 justify-items-center">
             <Link href="/">
               <Image
                 className="cursor-pointer"
@@ -42,9 +50,9 @@ export default function Post({ source, metadata }) {
                 height="96"
               />
             </Link>
-            <span className="text-xs text-gray-500 pt-4">WRITTEN BY</span>
+            <span className="pt-4 text-xs text-gray-500">WRITTEN BY</span>
             <Link href="/">
-              <span className="cursor-pointer text-lg pt-1">
+              <span className="pt-1 text-lg cursor-pointer">
                 Matt Beiswenger
               </span>
             </Link>
