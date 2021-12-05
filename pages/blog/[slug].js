@@ -11,12 +11,12 @@ const editUrl = (slug) =>
 export default function Post({ source, metadata }) {
   return (
     <Container title={metadata.title}>
-      <article className="mx-auto leading-7 text-gray-800 md:leading-9 dark:text-gray-300">
+      <article className="mx-auto">
         <header className="max-w-3xl mx-auto">
-          <h1 className="text-2xl font-semibold md:text-4xl">
+          <h1 className="text-2xl font-semibold text-gray-800 md:text-4xl dark:text-gray-100">
             {metadata.title}
           </h1>
-          <div className="flex gap-2 mt-2 text-gray-400">
+          <div className="flex gap-2 mt-2 text-gray-600 dark:text-gray-400">
             <Date dateString={metadata.published} />
             <div>&#x2022;</div>
             <div>{metadata.readingTime}</div>
@@ -43,8 +43,8 @@ export default function Post({ source, metadata }) {
           <div className="grid mt-6 justify-items-center">
             <Link href="/">
               <Image
-                className="cursor-pointer"
-                src="/favicon-96x96.png"
+                className="rounded-full cursor-pointer"
+                src="/profile.jpg"
                 alt="Image of author"
                 width="96"
                 height="96"

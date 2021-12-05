@@ -51,11 +51,15 @@ const MdxComponents = {
   ),
   li: (props) => <li className="mt-1" {...props} />,
   p: (props) => (
-    <p className="max-w-3xl mx-auto mt-4 lg:mt-6">{props.children}</p>
+    <p className="max-w-3xl mx-auto mt-4 leading-7 lg:mt-6 dark:text-gray-300 md:leading-9">
+      {props.children}
+    </p>
   ),
   a: (props) => <CustomLink {...props} />,
   h2: (props) => (
-    <h2 className="mt-10 text-3xl font-semibold">{props.children}</h2>
+    <h2 className="max-w-3xl mx-auto mt-10 text-3xl font-semibold text-gray-800 dark:text-gray-100">
+      {props.children}
+    </h2>
   ),
 }
 

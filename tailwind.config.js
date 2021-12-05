@@ -12,6 +12,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', ...fontFamily.sans],
+        redacted: ['Redacted Script', 'cursive', ...fontFamily.sans],
       },
     },
   },
