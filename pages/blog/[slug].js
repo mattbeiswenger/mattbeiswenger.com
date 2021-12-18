@@ -42,19 +42,23 @@ export default function Post({ source, metadata }) {
           </a>
           <div className="grid mt-6 justify-items-center">
             <Link href="/">
-              <Image
-                className="rounded-full cursor-pointer"
-                src="/profile.jpg"
-                alt="Image of author"
-                width="96"
-                height="96"
-              />
+              <a>
+                <Image
+                  className="rounded-full cursor-pointer"
+                  src="/profile.jpg"
+                  alt="Image of author"
+                  width="96"
+                  height="96"
+                />
+              </a>
             </Link>
             <span className="pt-4 text-xs text-neutral-500">WRITTEN BY</span>
             <Link href="/">
-              <span className="pt-1 text-lg cursor-pointer">
-                Matt Beiswenger
-              </span>
+              <a>
+                <span className="pt-1 text-lg cursor-pointer">
+                  Matt Beiswenger
+                </span>
+              </a>
             </Link>
           </div>
         </footer>
