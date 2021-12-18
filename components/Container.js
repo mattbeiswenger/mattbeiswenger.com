@@ -18,9 +18,9 @@ export default function Container({ children, ...customMeta }) {
       </Head>
       <div className="flex pt-16 pb-20">
         <Link href="/">
-          <div className="text-4xl font-bold cursor-pointer font-redacted whitespace-nowrap logo">
+          <a className="text-4xl font-bold cursor-pointer font-redacted whitespace-nowrap logo">
             matt
-          </div>
+          </a>
         </Link>
         <nav className="flex items-center justify-end w-full gap-10 text-lg font-semibold text-gray-800 dark:text-gray-100">
           <Link href="/blog">Blog</Link>

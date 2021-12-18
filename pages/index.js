@@ -27,21 +27,21 @@ export default function Home({ articles }) {
         <div className="flex gap-5 pt-5 font-medium text-gray-600 text-md dark:text-gray-400">
           <a
             href="https://github.com/mattbeiswenger"
-            rel="noopener"
+            rel="noreferrer"
             target="_blank"
           >
             GitHub
           </a>
           <a
             href="https://twitter.com/mattbeiswenger"
-            rel="noopener"
+            rel="noreferrer"
             target="_blank"
           >
             Twitter
           </a>
           <a
             href="https://linkedin.com/in/mattbeiswenger"
-            rel="noopener"
+            rel="noreferrer"
             target="_blank"
           >
             LinkedIn
