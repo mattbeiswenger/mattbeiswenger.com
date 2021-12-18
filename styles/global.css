@@ -24,11 +24,11 @@
   width: 100%;
 }
 
-.responsive-image > div {
+.responsive-image > span {
   position: unset !important;
 }
 
-.responsive-image > div > img {
+.responsive-image > span > img {
   @apply rounded-xl;
   object-fit: contain;
   width: 100% !important;
