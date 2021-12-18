@@ -7,10 +7,10 @@ export default function Home({ articles }) {
   return (
     <>
       <Container title="Matt Beiswenger">
-        <div className="text-4xl font-semibold leading-10 text-gray-800 md:text-5xl dark:text-gray-100">
+        <div className="text-4xl font-semibold leading-10 text-neutral-800 md:text-5xl dark:text-neutral-100">
           Hi, I’m Matt Beiswenger
         </div>
-        <div className="max-w-2xl leading-loose text-gray-900 text-md mt-7 dark:text-gray-300">
+        <div className="max-w-2xl leading-loose text-neutral-900 text-md mt-7 dark:text-neutral-300">
           I’m a software engineer at{' '}
           <InlineLink url="https://topbloc.com/" newTab>
             👨🏼‍💻 TopBloc
@@ -24,7 +24,7 @@ export default function Home({ articles }) {
           </InlineLink>
           .
         </div>
-        <div className="flex gap-5 pt-5 font-medium text-gray-600 text-md dark:text-gray-400">
+        <div className="flex gap-5 pt-5 font-medium text-neutral-600 text-md dark:text-neutral-400">
           <a
             href="https://github.com/mattbeiswenger"
             rel="noreferrer"
@@ -49,7 +49,7 @@ export default function Home({ articles }) {
         </div>
         <section className="mt-20">
           <div className="flex flex-col gap-2">
-            <div className="text-3xl font-medium text-gray-800 dark:text-gray-100">
+            <div className="text-3xl font-medium text-neutral-800 dark:text-neutral-100">
               Recent Articles
             </div>
           </div>

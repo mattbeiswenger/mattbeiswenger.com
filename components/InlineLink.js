@@ -6,7 +6,7 @@ export default function InlineLink({ url, children, newTab }) {
   return (
     <Link href={url}>
       <a
-        className="inline-block transition text-white duration-200 ease-in-out bg-gray-700 hover:bg-gray-600 py-0.5 px-1 text-sm rounded-md whitespace-no-wrap"
+        className="inline-block transition text-white duration-200 ease-in-out bg-neutral-700 hover:bg-neutral-600 py-0.5 px-1 text-sm rounded-md whitespace-no-wrap"
         target={target}
         rel={rel}
       >

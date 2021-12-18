@@ -22,7 +22,7 @@ export default function Container({ children, ...customMeta }) {
             matt
           </a>
         </Link>
-        <nav className="flex items-center justify-end w-full gap-10 text-lg font-semibold text-gray-800 dark:text-gray-100">
+        <nav className="flex items-center justify-end w-full gap-10 text-lg font-semibold text-neutral-800 dark:text-neutral-100">
           <Link href="/blog">Blog</Link>
           <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
             {theme === 'dark' ? (

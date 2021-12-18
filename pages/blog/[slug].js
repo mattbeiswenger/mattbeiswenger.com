@@ -13,10 +13,10 @@ export default function Post({ source, metadata }) {
     <Container title={metadata.title}>
       <article className="mx-auto">
         <header className="max-w-3xl mx-auto">
-          <h1 className="text-2xl font-semibold text-gray-800 md:text-4xl dark:text-gray-100">
+          <h1 className="text-2xl font-semibold text-neutral-800 md:text-4xl dark:text-neutral-100">
             {metadata.title}
           </h1>
-          <div className="flex gap-2 mt-2 text-gray-600 dark:text-gray-400">
+          <div className="flex gap-2 mt-2 text-neutral-600 dark:text-neutral-400">
             <Date dateString={metadata.published} />
             <div>&#x2022;</div>
             <div>{metadata.readingTime}</div>
@@ -36,7 +36,7 @@ export default function Post({ source, metadata }) {
             href={editUrl(metadata.slug)}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-gray-500"
+            className="text-sm text-neutral-500"
           >
             Edit on GitHub
           </a>
@@ -50,7 +50,7 @@ export default function Post({ source, metadata }) {
                 height="96"
               />
             </Link>
-            <span className="pt-4 text-xs text-gray-500">WRITTEN BY</span>
+            <span className="pt-4 text-xs text-neutral-500">WRITTEN BY</span>
             <Link href="/">
               <span className="pt-1 text-lg cursor-pointer">
                 Matt Beiswenger
