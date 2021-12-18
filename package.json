@@ -26,5 +26,12 @@
     "postcss": "^8.2.14",
     "prettier": "2.2.0",
     "tailwindcss": "^2.2.4"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "jsxSingleQuote": false
   }
 }
