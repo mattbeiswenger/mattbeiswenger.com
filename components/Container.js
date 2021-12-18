@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes'
 import { SunIcon, MoonIcon } from '@heroicons/react/outline'
 
 export default function Container({ children, ...customMeta }) {
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
 
   const meta = {
     title: 'Matt Beiswenger',
@@ -24,8 +24,12 @@ export default function Container({ children, ...customMeta }) {
         </Link>
         <nav className="flex items-center justify-end w-full gap-10 text-lg font-semibold text-neutral-800 dark:text-neutral-100">
           <Link href="/blog">Blog</Link>
-          <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-            {theme === 'dark' ? (
+          <button
+            onClick={() =>
+              setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+            }
+          >
+            {resolvedTheme === 'dark' ? (
               <SunIcon className="w-5 h-5" />
             ) : (
               <MoonIcon className="w-5 h-5" />
