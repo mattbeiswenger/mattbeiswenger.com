@@ -12,7 +12,7 @@ export default function Container({ children, ...customMeta }) {
   }
 
   return (
-    <div className="max-w-6xl m-auto mb-32 antialiased">
+    <main className="max-w-6xl px-8 m-auto mb-32 antialiased">
       <Head>
         <title>{meta.title}</title>
       </Head>
@@ -34,6 +34,6 @@ export default function Container({ children, ...customMeta }) {
         </nav>
       </div>
       <div className="max-w-4xl mx-auto">{children}</div>
-    </div>
+    </main>
   )
 }

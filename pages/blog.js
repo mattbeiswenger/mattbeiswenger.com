@@ -1,26 +1,24 @@
 import Container from '@/components/Container'
+import ContentCard from '@/components/ContentCard'
 import { getAllPostsMetadata } from '@/lib/mdx'
-import Link from 'next/link'
 
 export default function Home({ posts }) {
   return (
     <Container title="Blog - Matt Beiswenger">
-      <div className="text-3xl leading-10 md:text-5xl mb-6 font-semibold">
+      <div className="mb-6 text-3xl font-semibold leading-10 md:text-5xl">
         Blog
       </div>
-      <div className="grid gap-10">
+      <div className="grid gap-10 mt-5 sm:grid-cols-2">
         {posts.map((post) => {
           return (
-            <Link key={post.slug} href={`blog/${post.slug}`}>
-              <div className="cursor-pointer grid gap-1 w-full">
-                <a className="dark:text-white text-lg md:text-2xl font-medium">
-                  {post.title}
-                </a>
-                <div className="dark:text-gray-400 leading-relaxed text-sm md:text-md text-gray-600">
-                  {post.description}
-                </div>
-              </div>
-            </Link>
+            <ContentCard
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              image={post.image}
+              published={post.published}
+              time={post.readingTime}
+              title={post.title}
+            />
           )
         })}
       </div>

@@ -1,9 +1,7 @@
-import InlineLink from '@/components/InlineLink'
 import Container from '@/components/Container'
+import ContentCard from '@/components/ContentCard'
+import InlineLink from '@/components/InlineLink'
 import { getAllPostsMetadata } from '@/lib/mdx'
-import Image from 'next/image'
-import Link from 'next/link'
-import Date from '@/components/Date'
 
 export default function Home({ articles }) {
   return (
@@ -55,24 +53,17 @@ export default function Home({ articles }) {
               Recent Articles
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-10 mt-5">
+          <div className="grid gap-10 mt-5 sm:grid-cols-2">
             {articles.map((article) => {
               return (
-                <Link href={`/blog/${article.slug}`} key={article.slug}>
-                  <a className="p-4 transition border-2 dark:border-transparent dark:bg-gray-800 rounded-xl ring-opacity-80 hover:ring-2 ring-offset-4 dark:ring-offset-gray-900 ring-red-400">
-                    <div className="block rounded-xl responsive-image">
-                      <Image src={article.image} layout="fill" />
-                    </div>
-                    <div className="flex gap-2 mt-3 text-sm text-gray-600 dark:text-gray-400">
-                      <Date dateString={article.published} />
-                      <div>&#x2022;</div>
-                      <div>{article.readingTime}</div>
-                    </div>
-                    <div className="mt-2 text-xl font-medium text-gray-800 dark:text-gray-100">
-                      {article.title}
-                    </div>
-                  </a>
-                </Link>
+                <ContentCard
+                  key={article.slug}
+                  href={`/blog/${article.slug}`}
+                  image={article.image}
+                  published={article.published}
+                  time={article.readingTime}
+                  title={article.title}
+                />
               )
             })}
           </div>
