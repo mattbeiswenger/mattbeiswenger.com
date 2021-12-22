@@ -10,8 +10,8 @@ export default function Home({ articles }) {
           Hi, I’m Matt Beiswenger
         </div>
         <div className="max-w-2xl text-neutral-900 sm:text-2xl text-lg tracking-wide sm:mt-7 mt-5 dark:text-neutral-200">
-          I'm a design-minded software developer currently building and breaking
-          things at{' '}
+          I&apos;m a design-minded software developer currently building and
+          breaking things at{' '}
           <a
             className="underline decoration-neutral-300 dark:decoration-neutral-700"
             href="https://topbloc.com"
