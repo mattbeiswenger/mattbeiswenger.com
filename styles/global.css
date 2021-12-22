@@ -19,19 +19,3 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-.responsive-image {
-  width: 100%;
-}
-
-.responsive-image > span {
-  position: unset !important;
-}
-
-.responsive-image > span > img {
-  @apply rounded-xl;
-  object-fit: contain;
-  width: 100% !important;
-  position: relative !important;
-  height: unset !important;
-}
