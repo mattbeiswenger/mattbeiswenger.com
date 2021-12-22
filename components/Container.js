@@ -18,8 +18,8 @@ export default function Container({ children, ...customMeta }) {
       </Head>
       <div className="flex sm:py-16 py-10">
         <Link href="/">
-          <a className="text-4xl font-bold cursor-pointer font-redacted whitespace-nowrap logo">
-            matt
+          <a className="whitespace-nowrap text-neutral-500 tracking-wider">
+            MATT BEISWENGER
           </a>
         </Link>
         <nav className="flex tracking-wide text-lg items-center justify-end w-full gap-10 text-neutral-800 dark:text-white">
