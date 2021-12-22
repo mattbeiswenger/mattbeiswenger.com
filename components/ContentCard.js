@@ -1,8 +1,7 @@
 import Date from '@/components/Date'
-import Image from 'next/image'
 import Link from 'next/link'
 
-export default function ContentCard({ href, image, published, time, title }) {
+export default function ContentCard({ href, published, time, title }) {
   return (
     <Link href={href}>
       <a className="p-4 transition bg-white border-2 dark:border-transparent dark:bg-neutral-800 rounded-xl">

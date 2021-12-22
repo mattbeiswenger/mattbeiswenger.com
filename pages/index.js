@@ -1,6 +1,5 @@
 import Container from '@/components/Container'
 import ContentCard from '@/components/ContentCard'
-import InlineLink from '@/components/InlineLink'
 import { getAllPostsMetadata } from '@/lib/mdx'
 
 export default function Home({ articles }) {
@@ -57,7 +56,6 @@ export default function Home({ articles }) {
                 <ContentCard
                   key={article.slug}
                   href={`/blog/${article.slug}`}
-                  image={article.image}
                   published={article.published}
                   time={article.readingTime}
                   title={article.title}
