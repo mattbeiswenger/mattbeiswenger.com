@@ -22,14 +22,6 @@ export default function Post({ source, metadata }) {
             <div>{metadata.readingTime}</div>
           </div>
         </header>
-        <div className="mt-10 mb-14 responsive-image">
-          <Image
-            src={metadata.image}
-            layout="fill"
-            alt="nighttime bonfire with sparks"
-            title="Photo by Tengyart"
-          />
-        </div>
         <MDXRemote {...source} />
         <footer className="max-w-3xl pt-8 mx-auto">
           <a

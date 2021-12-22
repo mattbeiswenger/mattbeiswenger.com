@@ -8,7 +8,7 @@ export default function Home({ posts }) {
       <div className="mb-6 text-3xl font-semibold leading-10 md:text-5xl">
         Blog
       </div>
-      <div className="grid gap-10 mt-5 sm:grid-cols-2">
+      <div className="gap-5 mt-5 flex flex-col">
         {posts.map((post) => {
           return (
             <ContentCard
