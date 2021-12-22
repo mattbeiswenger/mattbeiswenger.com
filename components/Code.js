@@ -3,7 +3,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 export default function Code({ language, children }) {
   return (
     <SyntaxHighlighter
-      className={`language-${language} subpixel-antialiased leading-relaxed text-sm scrolling-touch`}
+      className={`language-${language} subpixel-antialiased leading-relaxed text-sm scrolling-touch dark:bg-neutral-800 bg-neutral-100 shadow-lg`}
       style={theme}
       language={language}
     >
@@ -18,7 +18,6 @@ const theme = {
     overflowX: 'auto',
     padding: '1.5rem 1.5rem 0 1.5rem',
     color: '#abb2bf',
-    'background-color': '#282c34',
   },
   'hljs-comment': {
     color: '#5c6370',
