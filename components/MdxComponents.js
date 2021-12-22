@@ -61,6 +61,7 @@ const MdxComponents = {
       {props.children}
     </h2>
   ),
+  strong: (props) => <strong className="font-semibold" {...props}></strong>,
 }
 
 export default MdxComponents

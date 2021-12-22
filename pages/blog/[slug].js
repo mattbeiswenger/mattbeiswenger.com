@@ -11,7 +11,7 @@ const editUrl = (slug) =>
 export default function Post({ source, metadata }) {
   return (
     <Container title={metadata.title}>
-      <article className="mx-auto">
+      <article className="mx-auto sm:text-lg text-md">
         <header className="max-w-3xl mx-auto">
           <h1 className="text-2xl font-semibold text-neutral-800 md:text-4xl dark:text-neutral-100">
             {metadata.title}
@@ -28,7 +28,7 @@ export default function Post({ source, metadata }) {
             href={editUrl(metadata.slug)}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-neutral-500"
+            className=" text-sm text-neutral-500"
           >
             Edit on GitHub
           </a>
