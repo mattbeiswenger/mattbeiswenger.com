@@ -5,9 +5,12 @@ import { getAllPostsMetadata } from '@/lib/mdx'
 export default function Home({ posts }) {
   return (
     <Container title="Blog - Matt Beiswenger">
-      <div className="mb-6 text-3xl font-semibold leading-10 md:text-5xl">
+      <div className="sm:text-3xl text-xl font-medium text-neutral-800 dark:text-neutral-100">
         Blog
       </div>
+      {/* <div className="mb-6 text-3xl font-semibold leading-10 md:text-5xl">
+        Blog
+      </div> */}
       <div className="gap-5 mt-5 flex flex-col">
         {posts.map((post) => {
           return (

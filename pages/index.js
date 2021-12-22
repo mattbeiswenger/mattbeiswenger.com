@@ -7,10 +7,10 @@ export default function Home({ articles }) {
   return (
     <>
       <Container title="Matt Beiswenger">
-        <div className="max-w-2xl text-neutral-900 text-2xl tracking-wide mt-7 dark:text-neutral-200">
+        <div className="max-w-2xl text-neutral-900 sm:text-2xl text-lg tracking-wide sm:mt-7 mt-5 dark:text-neutral-200">
           Hi, I’m Matt Beiswenger
         </div>
-        <div className="max-w-2xl text-neutral-900 text-2xl tracking-wide mt-7 dark:text-neutral-200">
+        <div className="max-w-2xl text-neutral-900 sm:text-2xl text-lg tracking-wide sm:mt-7 mt-5 dark:text-neutral-200">
           I'm a design-minded software developer currently building and breaking
           things at{' '}
           <a
@@ -45,9 +45,9 @@ export default function Home({ articles }) {
             LinkedIn
           </a>
         </div>
-        <section className="mt-20">
+        <section className="sm:mt-20 mt-10">
           <div className="flex flex-col gap-2">
-            <div className="text-3xl font-medium text-neutral-800 dark:text-neutral-100">
+            <div className="sm:text-3xl text-xl font-medium text-neutral-800 dark:text-neutral-100">
               Recent Articles
             </div>
           </div>
