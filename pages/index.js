@@ -7,24 +7,22 @@ export default function Home({ articles }) {
   return (
     <>
       <Container title="Matt Beiswenger">
-        <div className="text-4xl font-semibold leading-10 text-neutral-800 md:text-5xl dark:text-neutral-100">
+        <div className="max-w-2xl text-neutral-900 text-2xl tracking-wide mt-7 dark:text-neutral-200">
           Hi, I’m Matt Beiswenger
         </div>
-        <div className="max-w-2xl leading-loose text-neutral-900 text-md mt-7 dark:text-neutral-300">
-          I’m a software engineer at{' '}
-          <InlineLink url="https://topbloc.com/" newTab>
-            👨🏼‍💻 TopBloc
-          </InlineLink>{' '}
-          where I work across our whole stack including Ember, Django, and Java.
-          I enjoy creating declarative, simple code (conditionals are my
-          kryptonite). When I’m not coding, you can find me walking along the
-          Chicago lakefront with my goldendoodle{' '}
-          <InlineLink url="https://www.instagram.com/p/CCABThOhGm4/" newTab>
-            🐕 Charlie
-          </InlineLink>
-          .
+        <div className="max-w-2xl text-neutral-900 text-2xl tracking-wide mt-7 dark:text-neutral-200">
+          I'm a design-minded software developer currently building and breaking
+          things at{' '}
+          <a
+            className="underline decoration-neutral-300 dark:decoration-neutral-700"
+            href="https://topbloc.com"
+            rel="noreferrer"
+            target="_blank"
+          >
+            TopBloc
+          </a>
         </div>
-        <div className="flex gap-5 pt-5 font-medium text-neutral-600 text-md dark:text-neutral-400">
+        <div className="flex gap-5 pt-5 font-medium text-neutral-600 text-md dark:text-neutral-400 tracking-wide">
           <a
             href="https://github.com/mattbeiswenger"
             rel="noreferrer"
@@ -53,7 +51,7 @@ export default function Home({ articles }) {
               Recent Articles
             </div>
           </div>
-          <div className="grid gap-10 mt-5 sm:grid-cols-2">
+          <div className="grid gap-6 mt-5 sm:grid-cols-1">
             {articles.map((article) => {
               return (
                 <ContentCard
