@@ -35,7 +35,7 @@ const MdxComponents = {
   code: ({ className, children }) => {
     const languageMatch = className && className.match('language-([^{]+)')
     return (
-      <div className="min-w-full my-8 overflow-hidden shadow-md shadow-neutral-200/50 dark:shadow-neutral-900/70 lg:w-full lg:rounded-xl">
+      <div className="min-w-full my-8 overflow-hidden lg:w-full lg:rounded-xl">
         <Code language={languageMatch[1]}>{children}</Code>
       </div>
     )
