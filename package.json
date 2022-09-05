@@ -46,6 +46,12 @@
   "eslintIgnore": [
     ".next"
   ],
+  "postcss": {
+    "plugins": {
+      "tailwindcss": {},
+      "autoprefixer": {}
+    }
+  },
   "prettier": {
     "trailingComma": "es5",
     "tabWidth": 2,
