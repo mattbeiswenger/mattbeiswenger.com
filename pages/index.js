@@ -56,7 +56,7 @@ export default function Home({ articles, books }) {
               <span className="flex items-center gap-1">
                 <BookOpenIcon className="w-4 h-4 text-indigo-400" />
                 <span className="text-sm font-semibold text-indigo-500 dark:text-indigo-300 sm:text-md">
-                  I'm currently reading
+                  I&apos;m currently reading
                 </span>
               </span>
               <div className="flex flex-col gap-3 mt-4">
@@ -74,7 +74,7 @@ export default function Home({ articles, books }) {
               <span className="flex items-center gap-1">
                 <CheckCircleIcon className="w-4 h-4 text-emerald-500" />
                 <span className="text-sm font-semibold sm:text-md dark:text-emerald-300 text-emerald-600">
-                  I've recently finished
+                  I&apos;ve recently finished
                 </span>
               </span>
               <div className="flex flex-col gap-3 mt-4">
