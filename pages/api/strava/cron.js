@@ -36,6 +36,8 @@ async function handler(req, res) {
       )
 
       const { access_token, refresh_token } = await response.json()
+      console.log('ACCESS_TOKEN', access_token)
+      console.log('REFRESH_TOKEN', refresh_token)
       await Promise.all([
         updateEnvironmentVariable(STRAVA_ACCESS_TOKEN_ID, access_token),
         updateEnvironmentVariable(STRAVA_REFRESH_TOKEN_ID, refresh_token),
