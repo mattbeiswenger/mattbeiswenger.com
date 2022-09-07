@@ -6,14 +6,18 @@ import { verifySignature } from '@upstash/qstash/nextjs'
  * This function gets triggered by qstash every 3 hours.
  */
 
-async function updateEnvironmentVariable(id, value) {
+async function updateEnvironmentVariable(key, id, value) {
   console.log(id, value)
+  console.log(typeof value)
+  console.log(typeof `${value}`)
   const response = await fetch(
     `https://api.vercel.com/v9/projects/mattbeiswenger-com/env/${id}`,
     {
       method: 'PATCH',
       body: {
         value: `${value}`,
+        target: ['Production', 'Preview', 'Development'],
+        key: `${key}`,
       },
       headers: {
         Authorization: `Bearer ${process.env.VERCEL_ACCESS_TOKEN}`,
@@ -49,8 +53,16 @@ async function handler(req, res) {
       console.log('before invocation')
 
       await Promise.all([
-        updateEnvironmentVariable(STRAVA_ACCESS_TOKEN_ID, access_token),
-        updateEnvironmentVariable(STRAVA_REFRESH_TOKEN_ID, refresh_token),
+        updateEnvironmentVariable(
+          'STRAVA_ACCESS_TOKEN',
+          STRAVA_ACCESS_TOKEN_ID,
+          access_token
+        ),
+        updateEnvironmentVariable(
+          'STRAVA_REFRESH_TOKEN',
+          STRAVA_REFRESH_TOKEN_ID,
+          refresh_token
+        ),
       ])
 
       console.log('after invocation')
