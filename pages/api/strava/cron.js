@@ -7,7 +7,8 @@ import { verifySignature } from '@upstash/qstash/nextjs'
  */
 
 async function updateEnvironmentVariable(id, value) {
-  await fetch(
+  console.log(id, value)
+  const response = await fetch(
     `https://api.vercel.com/v9/projects/mattbeiswenger-com/env/${id}`,
     {
       method: 'PATCH',
@@ -15,6 +16,8 @@ async function updateEnvironmentVariable(id, value) {
       headers: { Authorization: `Bearer ${process.env.VERCEL_ACCESS_TOKEN}` },
     }
   )
+  const data = response.json()
+  console.log(data)
 }
 
 async function handler(req, res) {
@@ -38,10 +41,15 @@ async function handler(req, res) {
       const { access_token, refresh_token } = await response.json()
       console.log('ACCESS_TOKEN', access_token)
       console.log('REFRESH_TOKEN', refresh_token)
+
+      console.log('before invocation')
+
       await Promise.all([
         updateEnvironmentVariable(STRAVA_ACCESS_TOKEN_ID, access_token),
         updateEnvironmentVariable(STRAVA_REFRESH_TOKEN_ID, refresh_token),
       ])
+
+      console.log('after invocation')
 
       res.status(200).json({ success: true })
     } catch (err) {
