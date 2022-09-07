@@ -11,7 +11,7 @@ async function updateEnvironmentVariable(id, value) {
   const response = await fetch(
     `https://api.vercel.com/v9/projects/mattbeiswenger-com/env/${id}`,
     {
-      method: 'patch',
+      method: 'PATCH',
       body: {
         value: `${value}`,
       },
