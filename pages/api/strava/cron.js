@@ -16,7 +16,7 @@ async function updateEnvironmentVariable(id, value) {
       headers: { Authorization: `Bearer ${process.env.VERCEL_ACCESS_TOKEN}` },
     }
   )
-  const data = response.json()
+  const data = await response.json()
   console.log(data)
 }
 
