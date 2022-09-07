@@ -11,9 +11,13 @@ async function updateEnvironmentVariable(id, value) {
   const response = await fetch(
     `https://api.vercel.com/v9/projects/mattbeiswenger-com/env/${id}`,
     {
-      method: 'PATCH',
-      body: { value },
-      headers: { Authorization: `Bearer ${process.env.VERCEL_ACCESS_TOKEN}` },
+      method: 'patch',
+      body: {
+        value: `${value}`,
+      },
+      headers: {
+        Authorization: `Bearer ${process.env.VERCEL_ACCESS_TOKEN}`,
+      },
     }
   )
   const data = await response.json()
