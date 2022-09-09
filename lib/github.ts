@@ -12,7 +12,6 @@ export async function getCommits(): Promise<Event[]> {
   return events
     .filter((event) => event.type === 'PushEvent' && event.created_at)
     .map((event) => {
-      console.log(event)
       if (event.created_at) {
         return {
           id: event.id,

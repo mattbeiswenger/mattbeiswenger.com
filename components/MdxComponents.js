@@ -27,18 +27,22 @@ const CustomLink = (props) => {
 }
 
 const MdxComponents = {
-  inlineCode: ({ children }) => (
-    <code className="px-1.5 py-1 text-sm bg-neutral-100 dark:bg-neutral-800 rounded-md whitespace-nowrap dark:text-white">
-      {children}
-    </code>
-  ),
   code: ({ className, children }) => {
-    const languageMatch = className && className.match('language-([^{]+)')
+    const languageMatch = className && className.match(/language-([^{]+)/)
 
+    if (languageMatch) {
+      return (
+        <div className="min-w-full my-8 overflow-hidden lg:w-full lg:rounded-xl">
+          <Code language={languageMatch[1]}>{children}</Code>
+        </div>
+      )
+    }
+
+    // Inline code
     return (
-      <div className="min-w-full my-8 overflow-hidden lg:w-full lg:rounded-xl">
-        <Code language={languageMatch[1]}>{children}</Code>
-      </div>
+      <code className="px-1.5 py-1 text-sm bg-neutral-100 dark:bg-neutral-800 rounded-md whitespace-nowrap dark:text-white">
+        {children}
+      </code>
     )
   },
   ol: (props) => (

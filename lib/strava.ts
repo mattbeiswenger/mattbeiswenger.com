@@ -73,7 +73,6 @@ export async function getStravaActivities(): Promise<Event[]> {
         },
       }
     }
-    console.log(activity)
     throw new Error('Activity is missing a required parameter')
   })
 }
