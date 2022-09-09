@@ -1,4 +1,4 @@
-import Code from '@/components/Code'
+import Code from '../components/Code'
 import Link from 'next/link'
 
 const CustomLink = (props) => {
@@ -34,6 +34,7 @@ const MdxComponents = {
   ),
   code: ({ className, children }) => {
     const languageMatch = className && className.match('language-([^{]+)')
+
     return (
       <div className="min-w-full my-8 overflow-hidden lg:w-full lg:rounded-xl">
         <Code language={languageMatch[1]}>{children}</Code>

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { useTheme } from 'next-themes'
-import { SunIcon, MoonIcon } from '@heroicons/react/outline'
+import { SunIcon, MoonIcon } from '@heroicons/react/24/outline'
 
 export default function Container({ children, className, ...customMeta }) {
   const { resolvedTheme, setTheme } = useTheme()

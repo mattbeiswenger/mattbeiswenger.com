@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+# The swagger-typescript-api library doesn't support external refs within
+# Strava's swagger.json file. This script uses speccy to stitch the refs into
+# a single swagger.json file and then feeds it to swagger-typescript-api.
+#
+# Resource: https://github.com/acacode/swagger-typescript-api/issues/209
+
+echo "Creating ./tmp directory..."
+make-dir ./tmp
+
+echo "Stitching swagger api..."
+speccy resolve -o ./tmp/strava.json https://developers.strava.com/swagger/swagger.json
+
+echo "Generating ./types/strava.ts file..."
+swagger-typescript-api -p ./tmp/strava.json -o ./types -n strava.ts
+
+echo "Removing ./tmp directory..."
+rimraf ./tmp

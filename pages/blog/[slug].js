@@ -1,7 +1,7 @@
-import { getPostBySlug, getPublishedPosts } from '@/lib/mdx'
+import { getPostBySlug, getPublishedPosts } from '../../lib/mdx'
 import { MDXRemote } from 'next-mdx-remote'
-import Container from '@/components/Container'
-import Date from '@/components/Date'
+import Container from '../../components/Container'
+import Date from '../../components/Date'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -28,7 +28,7 @@ export default function Post({ source, metadata }) {
             href={editUrl(metadata.slug)}
             target="_blank"
             rel="noopener noreferrer"
-            className=" text-sm text-neutral-500"
+            className="text-sm text-neutral-500"
           >
             Edit on GitHub
           </a>

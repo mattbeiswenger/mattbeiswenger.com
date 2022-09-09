@@ -1,6 +1,6 @@
-import Container from '@/components/Container'
-import ContentCard from '@/components/ContentCard'
-import { getAllPostsMetadata } from '@/lib/mdx'
+import Container from '../components/Container'
+import ContentCard from '../components/ContentCard'
+import { getAllPostsMetadata } from '../lib/mdx'
 
 export default function Home({ posts }) {
   return (

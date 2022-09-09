@@ -1,4 +1,4 @@
-import Container from '@/components/Container'
+import Container from '..components/Container'
 import fs from 'fs'
 import path from 'path'
 import Image from 'next/image'

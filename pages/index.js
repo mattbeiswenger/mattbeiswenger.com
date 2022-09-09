@@ -1,9 +1,9 @@
-import Container from '@/components/Container'
-import ContentCard from '@/components/ContentCard'
-import { getAllPostsMetadata } from '@/lib/mdx'
-import { getAllBooks } from '@/lib/oku'
-import { BookOpenIcon, CheckCircleIcon } from '@heroicons/react/outline'
-import BookCard from '@/components/BookCard'
+import Container from '../components/Container'
+import ContentCard from '../components/ContentCard'
+import { getAllPostsMetadata } from '../lib/mdx'
+import { getAllBooks } from '../lib/oku'
+import { BookOpenIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
+import BookCard from '../components/BookCard'
 
 export default function Home({ articles, books }) {
   return (
