@@ -2,6 +2,7 @@ import { getCommits } from '../lib/github'
 import { getStravaActivities } from '../lib/strava'
 import Event from '../components/Event'
 import { BoltIcon, SparklesIcon } from '@heroicons/react/24/outline'
+import Calendar from '../components/Calendar'
 
 function getBlock(event) {
   if (event.kind === 1) {
@@ -65,10 +66,13 @@ function getBlock(event) {
 
 export default function Timeline({ events }) {
   return (
-    <div className="flex flex-col max-w-3xl gap-10 p-4 mx-auto">
-      {events.map((event) => {
-        return <div key={event.id}>{getBlock(event)}</div>
-      })}
+    <div className="grid items-center h-screen timeline-grid p-10">
+      <Calendar />
+      <div className="flex flex-col max-w-3xl max-h-full gap-10 p-4 mx-auto overflow-scroll">
+        {events.map((event) => {
+          return <div key={event.id}>{getBlock(event)}</div>
+        })}
+      </div>
     </div>
   )
 }
