@@ -3,6 +3,8 @@ import { getStravaActivities } from '../lib/strava'
 import Event from '../components/Event'
 import { BoltIcon, SparklesIcon } from '@heroicons/react/24/outline'
 import Calendar from '../components/Calendar'
+import { startOfToday, format, isSameDay } from 'date-fns'
+import { useState } from 'react'
 
 function getBlock(event) {
   if (event.kind === 1) {
@@ -65,13 +67,28 @@ function getBlock(event) {
 }
 
 export default function Timeline({ events }) {
+  const today = startOfToday()
+
+  const [selectedDay, setSelectedDay] = useState(today)
+  const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
+
+  console.log(selectedDay)
+  console.log(currentMonth)
+
   return (
-    <div className="grid items-center h-screen timeline-grid p-10">
-      <Calendar />
+    <div className="grid items-center h-screen p-10 timeline-grid">
+      <Calendar
+        selectedDay={selectedDay}
+        setSelectedDay={setSelectedDay}
+        currentMonth={currentMonth}
+        setCurrentMonth={setCurrentMonth}
+      />
       <div className="flex flex-col max-w-3xl max-h-full gap-10 p-4 mx-auto overflow-scroll">
-        {events.map((event) => {
-          return <div key={event.id}>{getBlock(event)}</div>
-        })}
+        {events
+          .filter((event) => isSameDay(new Date(event.startTime), selectedDay))
+          .map((event) => {
+            return <div key={event.id}>{getBlock(event)}</div>
+          })}
       </div>
     </div>
   )

@@ -31,11 +31,12 @@ const COL_START_CLASSES = [
   'col-start-7',
 ]
 
-export default function Calendar() {
-  const today = startOfToday()
-
-  const [selectedDay, setSelectedDay] = useState(today)
-  const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
+export default function Calendar({
+  selectedDay,
+  setSelectedDay,
+  currentMonth,
+  setCurrentMonth,
+}) {
   const firstDayOfCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
 
   const newDays = eachDayOfInterval({
