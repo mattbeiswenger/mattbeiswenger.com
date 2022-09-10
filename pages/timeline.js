@@ -3,8 +3,9 @@ import { getStravaActivities } from '../lib/strava'
 import Event from '../components/Event'
 import { BoltIcon, SparklesIcon } from '@heroicons/react/24/outline'
 import Calendar from '../components/Calendar'
-import { startOfToday, format, isSameDay } from 'date-fns'
+import { startOfToday, format, isSameDay, startOfDay, parseISO } from 'date-fns'
 import { useState } from 'react'
+import { parse } from 'path'
 
 function getBlock(event) {
   if (event.kind === 1) {
@@ -72,23 +73,27 @@ export default function Timeline({ events }) {
   const [selectedDay, setSelectedDay] = useState(today)
   const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
 
-  console.log(selectedDay)
-  console.log(currentMonth)
-
   return (
-    <div className="grid items-center h-screen p-10 timeline-grid">
+    <div className="grid items-center w-full h-screen grid-cols-2 p-10">
       <Calendar
         selectedDay={selectedDay}
         setSelectedDay={setSelectedDay}
         currentMonth={currentMonth}
         setCurrentMonth={setCurrentMonth}
       />
-      <div className="flex flex-col max-w-3xl max-h-full gap-10 p-4 mx-auto overflow-scroll">
-        {events
-          .filter((event) => isSameDay(new Date(event.startTime), selectedDay))
-          .map((event) => {
-            return <div key={event.id}>{getBlock(event)}</div>
-          })}
+      <div className="flex flex-col h-full gap-10 p-4 overflow-scroll event-container">
+        {Object.entries(events).map(([key, value]) => {
+          return (
+            <>
+              <div className="text-sm text-gray-400">
+                {format(new Date(key), 'MMM do')}
+              </div>
+              {value.map((event) => {
+                return <div key={event.id}>{getBlock(event)}</div>
+              })}
+            </>
+          )
+        })}
       </div>
     </div>
   )
@@ -101,9 +106,15 @@ export async function getServerSideProps() {
     return new Date(b.startTime) - new Date(a.startTime)
   })
 
+  const groupedEvents = mergedEvents.reduce((acc, event) => {
+    const key = startOfDay(parseISO(event.startTime)).toDateString()
+    acc[key] = acc[key] ? [...acc[key], event] : [event]
+    return acc
+  }, {})
+
   return {
     props: {
-      events: mergedEvents,
+      events: groupedEvents,
     },
   }
 }
