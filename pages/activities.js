@@ -6,7 +6,7 @@ import { useState } from 'react'
 import Container from '../components/Container'
 import EventStream from '../components/EventStream'
 
-export default function Timeline({ events }) {
+export default function Activities({ events }) {
   const today = startOfToday()
 
   const [selectedDay, setSelectedDay] = useState(today)

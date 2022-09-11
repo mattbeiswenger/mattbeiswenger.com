@@ -77,7 +77,7 @@ export default function Home({ articles, books, events }) {
               })}
             </div>
             <div className="relative flex justify-center -mt-24">
-              <Link href="/timeline">
+              <Link href="/activities">
                 <a className="px-4 py-2 border rounded-md bg-neutral-800 border-neutral-700 text-neutral-200">
                   View all activities
                 </a>
