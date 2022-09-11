@@ -5,6 +5,9 @@ import { startOfToday, format, startOfDay, parseISO } from 'date-fns'
 import { useState } from 'react'
 import Container from '../components/Container'
 import EventStream from '../components/EventStream'
+import SmallContainer from '../components/SmallContainer'
+import { ArrowLongLeftIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 
 export default function Activities({ events }) {
   const today = startOfToday()
@@ -14,15 +17,24 @@ export default function Activities({ events }) {
 
   return (
     <Container title="Activity — Matt Beiswenger">
-      <div className="grid items-center w-full h-screen grid-cols-2">
-        <Calendar
+      <SmallContainer>
+        <Link href="/">
+          <a className="inline-flex items-center gap-1 text-sm text-neutral-400">
+            <ArrowLongLeftIcon className="w-4 h-4 text-sm" />
+            Home
+          </a>
+        </Link>
+        <div className="text-lg text-neutral-100">Activities</div>
+        {/* <div className="grid items-center w-full h-screen grid-cols-2"> */}
+        {/* <Calendar
           selectedDay={selectedDay}
           setSelectedDay={setSelectedDay}
           currentMonth={currentMonth}
           setCurrentMonth={setCurrentMonth}
-        />
-        <EventStream events={events} className="py-40 event-container" />
-      </div>
+        /> */}
+        <EventStream events={events} className="" />
+        {/* </div> */}
+      </SmallContainer>
     </Container>
   )
 }
@@ -34,15 +46,15 @@ export async function getServerSideProps() {
     return new Date(b.startTime) - new Date(a.startTime)
   })
 
-  const groupedEvents = mergedEvents.reduce((acc, event) => {
-    const key = startOfDay(parseISO(event.startTime)).toDateString()
-    acc[key] = acc[key] ? [...acc[key], event] : [event]
-    return acc
-  }, {})
+  // const groupedEvents = mergedEvents.reduce((acc, event) => {
+  //   const key = startOfDay(parseISO(event.startTime)).toDateString()
+  //   acc[key] = acc[key] ? [...acc[key], event] : [event]
+  //   return acc
+  // }, {})
 
   return {
     props: {
-      events: groupedEvents,
+      events: mergedEvents,
     },
   }
 }

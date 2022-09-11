@@ -35,13 +35,12 @@ export default function Home({ articles, books, events }) {
             >
               TopBloc
             </a>
-            .
             <div>
               Type{' '}
               <span className="px-1 py-0.5 text-sm rounded-md bg-neutral-800 border border-neutral-700">
                 ⌘K
               </span>{' '}
-              to explore this site.
+              to explore this site
             </div>
           </div>
           {/* <div className="flex gap-5 pt-5 font-medium tracking-wide text-neutral-600 text-md dark:text-neutral-400">

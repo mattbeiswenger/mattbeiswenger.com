@@ -3,8 +3,12 @@ import EventFactory from './EventFactory'
 
 export default function EventStream({ events, className }) {
   return (
-    <div className={`${className} flex flex-col gap-10 overflow-scroll h-3/4`}>
-      {Object.entries(events).map(([key, value]) => {
+    <div className={`${className} flex flex-col gap-10 mt-10`}>
+      {events.map((event) => {
+        return <EventFactory key={event.id} event={event} />
+      })}
+
+      {/* {Object.entries(events).map(([key, value]) => {
         return (
           <>
             <div className="text-sm text-gray-400">
@@ -15,7 +19,7 @@ export default function EventStream({ events, className }) {
             })}
           </>
         )
-      })}
+      })} */}
     </div>
   )
 }
