@@ -24,3 +24,7 @@
   mask-image: linear-gradient(to top, black calc(100% - 150px), transparent 100%),
     linear-gradient(to bottom, black calc(100% - 150px), transparent 100%);
 }
+
+.fade-bottom {
+  mask-image: linear-gradient(to bottom, black 70%, transparent 90%);
+}

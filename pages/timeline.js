@@ -1,71 +1,10 @@
 import { getCommits } from '../lib/github'
 import { getStravaActivities } from '../lib/strava'
-import Event from '../components/Event'
-import { BoltIcon, SparklesIcon } from '@heroicons/react/24/outline'
 import Calendar from '../components/Calendar'
-import { startOfToday, format, isSameDay, startOfDay, parseISO } from 'date-fns'
+import { startOfToday, format, startOfDay, parseISO } from 'date-fns'
 import { useState } from 'react'
-import { parse } from 'path'
-
-function getBlock(event) {
-  if (event.kind === 1) {
-    return (
-      <>
-        <Event
-          title={(className) => (
-            <span className={className}>Ran {event.data.distance} miles</span>
-          )}
-          node={() => (
-            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-amber-600 to-pink-400">
-              <BoltIcon className="w-4 h-4" />
-            </div>
-          )}
-          startTime={event.startTime}
-        >
-          <div className="flex items-center gap-8 px-4 py-3 bg-white border dark:border-none dark:bg-neutral-800 rounded-xl">
-            <div className="flex flex-col">
-              <span className="text-xs">Distance</span>
-              <span>{event.data.distance} mi</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xs">Time</span>
-              <span>{event.data.elapsed_time}</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xs">Pace</span>
-              <span>{event.data.pace}</span>
-            </div>
-          </div>
-        </Event>
-      </>
-    )
-  } else if (event.kind === 0) {
-    return (
-      <Event
-        startTime={event.startTime}
-        title={(className) => (
-          <span className={className}>
-            Pushed {event.data.numberOfCommits}{' '}
-            {event.data.numberOfCommits === 1 ? 'commit' : 'commits'} to{' '}
-            <a
-              className="underline text-amber-500 underline-offset-2"
-              href={`https://github.com/${event.data.repo.name}`}
-              target="blank"
-              rel="noreferrer"
-            >
-              {event.data.repo.name}
-            </a>
-          </span>
-        )}
-        node={() => (
-          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-sky-600 to-rose-600">
-            <SparklesIcon className="w-4 h-4" />
-          </div>
-        )}
-      />
-    )
-  }
-}
+import Container from '../components/Container'
+import EventStream from '../components/EventStream'
 
 export default function Timeline({ events }) {
   const today = startOfToday()
@@ -74,28 +13,17 @@ export default function Timeline({ events }) {
   const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
 
   return (
-    <div className="grid items-center w-full h-screen grid-cols-2 p-10">
-      <Calendar
-        selectedDay={selectedDay}
-        setSelectedDay={setSelectedDay}
-        currentMonth={currentMonth}
-        setCurrentMonth={setCurrentMonth}
-      />
-      <div className="flex flex-col h-full gap-10 p-4 overflow-scroll event-container">
-        {Object.entries(events).map(([key, value]) => {
-          return (
-            <>
-              <div className="text-sm text-gray-400">
-                {format(new Date(key), 'MMM do')}
-              </div>
-              {value.map((event) => {
-                return <div key={event.id}>{getBlock(event)}</div>
-              })}
-            </>
-          )
-        })}
+    <Container title="Activity — Matt Beiswenger">
+      <div className="grid items-center w-full h-screen grid-cols-2">
+        <Calendar
+          selectedDay={selectedDay}
+          setSelectedDay={setSelectedDay}
+          currentMonth={currentMonth}
+          setCurrentMonth={setCurrentMonth}
+        />
+        <EventStream events={events} className="py-40 event-container" />
       </div>
-    </div>
+    </Container>
   )
 }
 

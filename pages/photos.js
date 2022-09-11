@@ -1,11 +1,11 @@
-import Container from '..components/Container'
+import Container from '../components/Container'
 import fs from 'fs'
 import path from 'path'
 import Image from 'next/image'
 
 export default function Photos({ photos }) {
   return (
-    <Container title="Photos — Matt Beiswenger" className="!max-w-full">
+    <Container title="Photos — Matt Beiswenger" className="">
       <div className="image-grid">
         {photos.map((photo) => {
           return (
