@@ -18,7 +18,7 @@ export default function Home({ posts }) {
             return (
               <ContentCard
                 key={post.slug}
-                href={`/blog/${post.slug}`}
+                href={`/articles/${post.slug}`}
                 image={post.image}
                 published={post.published}
                 time={post.readingTime}
