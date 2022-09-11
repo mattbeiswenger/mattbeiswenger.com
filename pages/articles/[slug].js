@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const editUrl = (slug) =>
-  `https://github.com/mattbeiswenger/mattbeiswenger.com/edit/main/data/blog/${slug}.mdx`
+  `https://github.com/mattbeiswenger/mattbeiswenger.com/edit/main/data/activities/${slug}.mdx`
 
 export default function Post({ source, metadata }) {
   return (
