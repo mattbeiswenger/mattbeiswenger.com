@@ -15,7 +15,7 @@ export default function StravaEvent({ event }) {
         )}
         startTime={event.startTime}
       >
-        <div className="flex items-center gap-8 px-4 py-3 bg-white border dark:border-none dark:bg-neutral-800 rounded-xl">
+        <div className="flex items-center gap-8 px-4 py-3 bg-white border border-neutral-700 dark:bg-neutral-800 rounded-xl">
           <div className="flex flex-col">
             <span className="text-xs">Distance</span>
             <span>{event.data.distance} mi</span>
