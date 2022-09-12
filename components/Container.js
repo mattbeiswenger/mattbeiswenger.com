@@ -1,12 +1,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { useTheme } from 'next-themes'
-import {
-  SunIcon,
-  MoonIcon,
-  ArrowUpRightIcon,
-} from '@heroicons/react/24/outline'
-import Image from 'next/image'
+import { ArrowUpRightIcon } from '@heroicons/react/24/outline'
 import { format } from 'date-fns'
 
 export default function Container({ children, className, ...customMeta }) {
@@ -128,7 +123,7 @@ export default function Container({ children, className, ...customMeta }) {
               target="_blank"
               rel="noreferrer"
             >
-              Vercel
+              ▲Vercel
             </a>
           </div>
         </div>
