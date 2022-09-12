@@ -13,7 +13,7 @@ export default function Container({ children, className, ...customMeta }) {
   }
 
   return (
-    <main className={`${className} max-w-2xl mx-auto antialiased mt-44`}>
+    <main className={`${className} max-w-2xl mx-auto antialiased mt-40`}>
       <Head>
         <title>{meta.title}</title>
       </Head>

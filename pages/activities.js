@@ -7,6 +7,7 @@ import Container from '../components/Container'
 import EventStream from '../components/EventStream'
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import Header from '../components/Header'
 
 export default function Activities({ events }) {
   const today = startOfToday()
@@ -22,7 +23,7 @@ export default function Activities({ events }) {
           Home
         </a>
       </Link>
-      <div className="text-lg text-neutral-100">Activities</div>
+      <Header>Activities</Header>
       {/* <div className="grid items-center w-full h-screen grid-cols-2"> */}
       {/* <Calendar
           selectedDay={selectedDay}

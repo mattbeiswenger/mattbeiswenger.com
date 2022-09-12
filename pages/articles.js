@@ -2,6 +2,7 @@ import { ArrowLongLeftIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Container from '../components/Container'
 import ContentCard from '../components/ContentCard'
+import Header from '../components/Header'
 import { getAllPostsMetadata } from '../lib/mdx'
 
 export default function Home({ posts }) {
@@ -13,10 +14,7 @@ export default function Home({ posts }) {
           Home
         </a>
       </Link>
-      <div className="text-lg text-neutral-100">Articles</div>
-      {/* <div className="mb-6 text-3xl font-semibold leading-10 md:text-5xl">
-        Blog
-      </div> */}
+      <Header>Articles</Header>
       <div className="flex flex-col gap-5 mt-5">
         {posts.map((post) => {
           return (
