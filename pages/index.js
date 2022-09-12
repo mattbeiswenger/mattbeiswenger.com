@@ -19,7 +19,7 @@ export default function Home({ events }) {
           I&apos;m a design-focused software developer currently building
           products at{' '}
           <a
-            className="flex items-center gap-1 text-neutral-200"
+            className="flex items-center gap-1 text-neutral-400"
             href="https://topbloc.com"
             rel="noreferrer"
             target="_blank"
@@ -70,8 +70,6 @@ export async function getStaticProps() {
   eventsFromPastWeek.sort((a, b) => {
     return new Date(b.startTime) - new Date(a.startTime)
   })
-
-  console.log(eventsFromPastWeek)
 
   return {
     props: {
