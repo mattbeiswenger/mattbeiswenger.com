@@ -28,7 +28,7 @@ export default function Home({ articles, books, events }) {
             I&apos;m a design-focused software developer currently building
             products at{' '}
             <a
-              className="text-neutral-400"
+              className="font-medium text-neutral-400"
               href="https://topbloc.com"
               rel="noreferrer"
               target="_blank"
