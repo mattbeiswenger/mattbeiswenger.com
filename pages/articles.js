@@ -1,3 +1,5 @@
+import { ArrowLongLeftIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 import Container from '../components/Container'
 import ContentCard from '../components/ContentCard'
 import { getAllPostsMetadata } from '../lib/mdx'
@@ -5,9 +7,13 @@ import { getAllPostsMetadata } from '../lib/mdx'
 export default function Home({ posts }) {
   return (
     <Container title="Blog — Matt Beiswenger">
-      <div className="text-xl font-medium sm:text-3xl text-neutral-800 dark:text-neutral-100">
-        Blog
-      </div>
+      <Link href="/">
+        <a className="inline-flex items-center gap-1 text-sm text-neutral-400">
+          <ArrowLongLeftIcon className="w-4 h-4 text-sm" />
+          Home
+        </a>
+      </Link>
+      <div className="text-lg text-neutral-100">Articles</div>
       {/* <div className="mb-6 text-3xl font-semibold leading-10 md:text-5xl">
         Blog
       </div> */}
