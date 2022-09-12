@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function Photos({ photos }) {
   return (
-    <Container title="Photos — Matt Beiswenger" className="">
+    <Container title="Photos — Matt Beiswenger" className="!m-5 !max-w-none">
       <div className="image-grid">
         {photos.map((photo) => {
           return (
