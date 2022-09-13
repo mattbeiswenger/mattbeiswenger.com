@@ -44,7 +44,7 @@ export default function Home({ events }) {
               return <EventFactory key={event.id} event={event} />
             })}
           </div>
-          <div className="relative flex justify-center -mt-24">
+          <div className="relative flex justify-center">
             <Link href="/activities">
               <a className="px-4 py-2 border rounded-md bg-neutral-800 border-neutral-700 text-neutral-200">
                 View all activities
@@ -58,22 +58,16 @@ export default function Home({ events }) {
 }
 
 export async function getStaticProps() {
-  const today = startOfToday()
-  const oneWeekAgo = sub(today, { days: 5 })
-
   const events = await Promise.all([getStravaActivities(), getCommits()])
   const mergedEvents = events.flat()
-  const eventsFromPastWeek = mergedEvents.filter((event) =>
-    isAfter(new Date(event.startTime), oneWeekAgo)
-  )
-
-  eventsFromPastWeek.sort((a, b) => {
+  mergedEvents.sort((a, b) => {
     return new Date(b.startTime) - new Date(a.startTime)
   })
+  const firstTenEvents = mergedEvents.slice(0, 10)
 
   return {
     props: {
-      events: eventsFromPastWeek,
+      events: firstTenEvents,
     },
   }
 }
