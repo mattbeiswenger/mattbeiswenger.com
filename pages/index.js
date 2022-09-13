@@ -46,7 +46,7 @@ export default function Home({ events }) {
           </div>
           <div className="relative flex justify-center">
             <Link href="/activities">
-              <a className="px-4 py-2 border rounded-md bg-neutral-800 border-neutral-700 text-neutral-200">
+              <a className="px-4 py-2 text-sm border rounded-md bg-neutral-800 border-neutral-700 text-neutral-200 sm:text-base">
                 View all activities
               </a>
             </Link>

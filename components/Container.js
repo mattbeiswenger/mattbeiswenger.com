@@ -13,7 +13,9 @@ export default function Container({ children, className, ...customMeta }) {
   }
 
   return (
-    <main className={`${className} max-w-2xl mx-auto antialiased mt-40`}>
+    <main
+      className={`${className} max-w-2xl mx-auto antialiased mt-10 sm:mt-40 px-5`}
+    >
       <Head>
         <title>{meta.title}</title>
       </Head>
@@ -55,12 +57,9 @@ export default function Container({ children, className, ...customMeta }) {
             </a>
           </div>
         </div>
-        <div className="flex justify-between">
-          <div className="my-12 text-sm text-neutral-500">{`© Matt Beiswenger ${format(
-            new Date(),
-            'yyyy'
-          )}`}</div>
-          <div className="my-12 text-sm text-neutral-500">
+        <div className="flex flex-wrap justify-between gap-2 my-12 text-xs sm:text-sm text-neutral-500">
+          <span>{`© Matt Beiswenger ${format(new Date(), 'yyyy')}`}</span>
+          <span>
             Built with{' '}
             <a
               href="https://nextjs.org/"
@@ -79,7 +78,7 @@ export default function Container({ children, className, ...customMeta }) {
             >
               ▲Vercel
             </a>
-          </div>
+          </span>
         </div>
       </div>
     </main>
