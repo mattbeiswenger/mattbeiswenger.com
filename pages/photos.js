@@ -7,7 +7,10 @@ import Link from 'next/link'
 
 export default function Photos({ photos }) {
   return (
-    <Container title="Photos — Matt Beiswenger" className="!m-5 !max-w-none">
+    <Container
+      title="Photos — Matt Beiswenger"
+      className="!m-5 !max-w-none !p-0"
+    >
       <Link href="/">
         <a className="fixed z-10 flex items-center gap-2 px-4 py-2 text-sm rounded-lg group sm:top-14 sm:left-14 left-10 top-10 backdrop-blur-md bg-opacity-40 bg-neutral-700">
           <ArrowLongLeftIcon className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
