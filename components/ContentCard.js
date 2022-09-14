@@ -5,7 +5,7 @@ export default function ContentCard({ href, published, title }) {
   return (
     <Link href={href}>
       <a className="flex justify-between">
-        <div className="font-medium">{title}</div>
+        <div className="font-medium text-neutral-300">{title}</div>
         <Date className="text-sm text-neutral-400" dateString={published} />
       </a>
     </Link>
