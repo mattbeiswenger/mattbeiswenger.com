@@ -9,8 +9,8 @@ export default function StravaEvent({ event }) {
           <span className={className}>Ran {event.data.distance} miles</span>
         )}
         node={() => (
-          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-amber-600 to-pink-400">
-            <BoltIcon className="w-4 h-4" />
+          <div className="flex items-center justify-center flex-none w-6 h-6 rounded-full sm:w-8 sm:h-8 bg-gradient-to-br from-amber-600 to-pink-400">
+            <BoltIcon className="w-3 h-3 sm:w-4 sm:h-4" />
           </div>
         )}
         startTime={event.startTime}

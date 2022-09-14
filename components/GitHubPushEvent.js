@@ -27,7 +27,7 @@ export default function GitHubPushEvent({ event }) {
         </span>
       )}
       node={() => (
-        <div className="flex items-center justify-center w-5 h-5 rounded-full sm:w-8 sm:h-8 bg-gradient-to-br from-sky-600 to-rose-600">
+        <div className="flex items-center justify-center flex-none w-6 h-6 rounded-full sm:w-8 sm:h-8 bg-gradient-to-br from-sky-600 to-rose-600">
           <SparklesIcon className="w-3 h-3 sm:w-4 sm:h-4" />
         </div>
       )}
