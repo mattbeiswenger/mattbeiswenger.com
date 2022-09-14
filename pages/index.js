@@ -36,7 +36,7 @@ export default function Home({ events }) {
         </div>
         <section>
           <div className="mt-8 mb-5 text-neutral-800 dark:text-neutral-300">
-            Here's what I've been up to recently
+            Here&apos;s what I&apos;ve been up to recently
           </div>
           <div className="fade-bottom">
             <EventStream events={events} />

@@ -1,9 +1,7 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import {
-  startOfToday,
   format,
   eachDayOfInterval,
-  startOfMonth,
   endOfMonth,
   endOfWeek,
   isToday,
@@ -15,7 +13,6 @@ import {
   isSameMonth,
   getDay,
 } from 'date-fns'
-import { useState } from 'react'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
