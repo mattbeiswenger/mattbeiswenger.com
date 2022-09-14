@@ -10,7 +10,7 @@ export default function Activities({ events }) {
     <Container title="Activity — Matt Beiswenger">
       <BackButton href="/">Home</BackButton>
       <Header>Activities</Header>
-      <EventStream events={events} className="" />
+      <EventStream events={events} />
     </Container>
   )
 }

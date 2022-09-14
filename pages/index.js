@@ -6,6 +6,7 @@ import { isAfter, startOfToday, sub } from 'date-fns'
 import EventFactory from '../components/EventFactory'
 import Link from 'next/link'
 import Header from '../components/Header'
+import EventStream from '../components/EventStream'
 
 export default function Home({ events }) {
   return (
@@ -39,10 +40,8 @@ export default function Home({ events }) {
           <div className="mt-8 mb-5 text-neutral-800 dark:text-neutral-300">
             Here's what I've been up to recently
           </div>
-          <div className="flex flex-col justify-center gap-10 mx-auto mt-10 align-middle fade-bottom justify-items-center">
-            {events.map((event) => {
-              return <EventFactory key={event.id} event={event} />
-            })}
+          <div className="fade-bottom">
+            <EventStream events={events} />
           </div>
           <div className="relative flex justify-center">
             <Link href="/activities">
