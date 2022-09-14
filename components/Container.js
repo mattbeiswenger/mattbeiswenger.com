@@ -1,12 +1,9 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import { useTheme } from 'next-themes'
 import { ArrowUpRightIcon } from '@heroicons/react/24/outline'
 import { format } from 'date-fns'
 
 export default function Container({ children, className, ...customMeta }) {
-  const { resolvedTheme, setTheme } = useTheme()
-
   const meta = {
     title: 'Matt Beiswenger',
     ...customMeta,

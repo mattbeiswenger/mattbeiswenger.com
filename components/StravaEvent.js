@@ -3,18 +3,14 @@ import Event from './Event'
 
 export default function StravaEvent({ event }) {
   return (
-    <>
-      <Event
-        title={(className) => (
-          <span className={className}>Ran {event.data.distance} miles</span>
-        )}
-        node={() => (
-          <div className="flex items-center justify-center flex-none w-6 h-6 rounded-full sm:w-8 sm:h-8 bg-gradient-to-br from-amber-600 to-pink-400">
-            <BoltIcon className="w-3 h-3 sm:w-4 sm:h-4" />
-          </div>
-        )}
-        startTime={event.startTime}
-      >
+    <Event>
+      <Event.Node gradient="from-amber-600 to-pink-600">
+        <BoltIcon />
+      </Event.Node>
+      <Event.Body>
+        <Event.Header startTime={event.startTime}>
+          Ran {event.data.distance} miles
+        </Event.Header>
         <div className="flex items-center gap-8 px-4 py-3 bg-white border border-neutral-700 dark:bg-neutral-800 rounded-xl">
           <div className="flex flex-col">
             <span className="text-xs">Distance</span>
@@ -29,7 +25,7 @@ export default function StravaEvent({ event }) {
             <span>{event.data.pace}</span>
           </div>
         </div>
-      </Event>
-    </>
+      </Event.Body>
+    </Event>
   )
 }
