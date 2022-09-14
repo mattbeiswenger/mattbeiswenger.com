@@ -14,13 +14,13 @@ export default function Container({ children, className, ...customMeta }) {
 
   return (
     <main
-      className={`${className} max-w-2xl mx-auto antialiased mt-10 sm:mt-40 px-5`}
+      className={`${className} max-w-2xl mx-auto antialiased mt-10 sm:mt-40 px-5 min-h-screen flex flex-col justify-between`}
     >
       <Head>
         <title>{meta.title}</title>
       </Head>
-      <div className="mx-auto">{children}</div>
-      <div className="max-w-2xl mx-auto">
+      <div className="w-full mx-auto">{children}</div>
+      <div className="w-full max-w-2xl mx-auto">
         <div className="grid grid-cols-2 mt-20 text-sm font-medium text-neutral-400">
           <div className="flex flex-col gap-5">
             <Link href="/activities">Activities</Link>
