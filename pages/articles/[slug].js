@@ -4,6 +4,7 @@ import Container from '../../components/Container'
 import Date from '../../components/Date'
 import Image from 'next/image'
 import Link from 'next/link'
+import BackButton from '../../components/BackButton'
 
 const editUrl = (slug) =>
   `https://github.com/mattbeiswenger/mattbeiswenger.com/edit/main/data/activities/${slug}.mdx`
@@ -11,9 +12,10 @@ const editUrl = (slug) =>
 export default function Post({ source, metadata }) {
   return (
     <Container title={metadata.title}>
+      <BackButton href="/articles">Articles</BackButton>
       <article className="mx-auto sm:text-lg text-md">
         <header className="max-w-3xl mx-auto">
-          <h1 className="text-2xl font-semibold text-neutral-800 md:text-4xl dark:text-neutral-100">
+          <h1 className="text-lg font-medium text-neutral-800 md:text-4xl dark:text-neutral-100">
             {metadata.title}
           </h1>
           <div className="flex gap-2 mt-2 text-neutral-600 dark:text-neutral-400">
@@ -60,7 +62,7 @@ export default function Post({ source, metadata }) {
 }
 
 export async function getStaticPaths() {
-  const posts = await getPublishedPosts('blog')
+  const posts = await getPublishedPosts('articles')
   return {
     paths: posts.map((p) => ({
       params: {
@@ -72,5 +74,5 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  return await getPostBySlug('blog', params.slug)
+  return await getPostBySlug('articles', params.slug)
 }

@@ -1,12 +1,12 @@
 import BackButton from '../components/BackButton'
 import Container from '../components/Container'
-import ContentCard from '../components/ContentCard'
+import ContentCard from '../components/Article'
 import Header from '../components/Header'
 import { getAllPostsMetadata } from '../lib/mdx'
 
 export default function Home({ posts }) {
   return (
-    <Container title="Blog — Matt Beiswenger">
+    <Container title="Articles — Matt Beiswenger">
       <BackButton href="/">Home</BackButton>
       <Header>Articles</Header>
       <div className="flex flex-col gap-5 mt-5">
@@ -28,7 +28,7 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllPostsMetadata('blog')
+  const posts = await getAllPostsMetadata('articles')
   return {
     props: {
       posts,
