@@ -19,12 +19,12 @@ export default function Container({ children, className, ...customMeta }) {
       <div className="w-full mx-auto">{children}</div>
       <div className="w-full max-w-2xl mx-auto">
         <div className="grid grid-cols-2 mt-20 text-sm font-medium text-neutral-400">
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-3 sm:gap-5">
             <Link href="/activities">Activities</Link>
             <Link href="/articles">Articles</Link>
             <Link href="/photos">Photos</Link>
           </div>
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-3 sm:gap-5">
             <a
               href="https://github.com/mattbeiswenger"
               target="_blank"
@@ -54,7 +54,7 @@ export default function Container({ children, className, ...customMeta }) {
             </a>
           </div>
         </div>
-        <div className="flex flex-wrap justify-between gap-2 my-12 text-xs sm:text-sm text-neutral-500">
+        <div className="flex flex-wrap justify-between my-12 text-xs sm:text-sm text-neutral-500">
           <span>{`© Matt Beiswenger ${format(new Date(), 'yyyy')}`}</span>
           <span>
             Built with{' '}
