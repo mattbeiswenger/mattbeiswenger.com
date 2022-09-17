@@ -10,6 +10,7 @@
     "strava:generate": "scripty"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.2",
     "@heroicons/react": "^2.0.10",
     "@upstash/qstash": "^0.1.7",
     "date-fns": "^2.29.2",
