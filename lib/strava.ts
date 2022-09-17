@@ -16,7 +16,7 @@ function convertMetersToMiles(meters: number) {
   return Math.round(miles * 100) / 100
 }
 
-function pad(d) {
+function pad(d: number) {
   return d < 10 ? '0' + d.toString() : d.toString()
 }
 

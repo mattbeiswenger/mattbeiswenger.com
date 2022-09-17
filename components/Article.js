@@ -1,4 +1,4 @@
-import Date from '../components/Date'
+import Date from './Date'
 import Link from 'next/link'
 
 export default function ContentCard({ href, published, title }) {

@@ -1,28 +1,30 @@
-import { Octokit } from 'octokit'
 import { Event, EventType } from '../types'
+import { GitHubEvent, PushEvent } from '../types/github'
 
 export async function getCommits(): Promise<Event[]> {
-  const octokit = new Octokit({ auth: process.env.GITHUB_ACCESS_TOKEN })
-  const { data: events } = await octokit.request(
-    'GET /users/{username}/events/public',
+  const response = await fetch(
+    'https://api.github.com/users/mattbeiswenger/events/public',
     {
-      username: 'mattbeiswenger',
+      headers: {
+        Accept: 'application/vnd.github+json',
+        Bearer: `Authorization: Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
+      },
     }
   )
+
+  const events: GitHubEvent[] = await response.json()
+
   return events
-    .filter((event) => event.type === 'PushEvent' && event.created_at)
+    .filter((event): event is PushEvent => event.type === 'PushEvent')
     .map((event) => {
-      if (event.created_at) {
-        return {
-          id: event.id,
-          kind: EventType.GIT_COMMIT,
-          startTime: event.created_at,
-          data: {
-            numberOfCommits: event.payload.commits.length,
-            repo: event.repo,
-          },
-        }
+      return {
+        id: event.id,
+        kind: EventType.GIT_COMMIT,
+        startTime: event.created_at,
+        data: {
+          numberOfCommits: event.payload.commits.length,
+          repo: event.repo,
+        },
       }
-      throw new Error('Push event missing created_at value')
     })
 }

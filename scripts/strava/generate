@@ -13,7 +13,7 @@ echo "Stitching swagger api..."
 speccy resolve -o ./tmp/strava.json https://developers.strava.com/swagger/swagger.json
 
 echo "Generating ./types/strava.ts file..."
-swagger-typescript-api -p ./tmp/strava.json -o ./types -n strava.ts
+swagger-typescript-api -p ./tmp/strava.json -o ./types -n strava.d.ts
 
 echo "Removing ./tmp directory..."
 rimraf ./tmp
