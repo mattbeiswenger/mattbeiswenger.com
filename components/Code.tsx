@@ -1,6 +1,12 @@
 import SyntaxHighlighter from 'react-syntax-highlighter'
+import React from 'react'
 
-export default function Code({ language, children }) {
+type CodeProps = {
+  language: string
+  children: string
+}
+
+export default function Code({ language, children }: CodeProps) {
   return (
     <SyntaxHighlighter
       className={`language-${language} subpixel-antialiased leading-relaxed text-sm scrolling-touch dark:bg-neutral-800 bg-neutral-100 shadow-lg`}
@@ -12,7 +18,7 @@ export default function Code({ language, children }) {
   )
 }
 
-const theme = {
+const theme: { [key: string]: React.CSSProperties } = {
   hljs: {
     display: 'block',
     overflowX: 'auto',

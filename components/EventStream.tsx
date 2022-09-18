@@ -1,6 +1,11 @@
 import EventFactory from './EventFactory'
+import { Event } from '../types'
 
-export default function EventStream({ events }) {
+type EventStreamProps = {
+  events: Event[],
+}
+
+export default function EventStream({ events }: EventStreamProps) {
   return (
     <div className="flex flex-col mt-10">
       {events.map((event) => {

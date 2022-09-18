@@ -2,23 +2,25 @@ import BackButton from '../components/BackButton'
 import Container from '../components/Container'
 import ContentCard from '../components/Article'
 import Header from '../components/Header'
-import { getAllPostsMetadata } from '../lib/mdx'
+import { getAllPostsMetadata, PostMetadata } from '../lib/mdx'
 
-export default function Home({ posts }) {
+type ArticlesProps = {
+  articles: PostMetadata[]
+}
+
+export default function Home({ articles }: ArticlesProps) {
   return (
     <Container title="Articles — Matt Beiswenger">
       <BackButton href="/">Home</BackButton>
       <Header>Articles</Header>
       <div className="flex flex-col gap-5 mt-5">
-        {posts.map((post) => {
+        {articles.map((article) => {
           return (
             <ContentCard
-              key={post.slug}
-              href={`/articles/${post.slug}`}
-              image={post.image}
-              published={post.published}
-              time={post.readingTime}
-              title={post.title}
+              key={article.slug}
+              href={`/articles/${article.slug}`}
+              published={article.published}
+              title={article.title}
             />
           )
         })}
@@ -28,10 +30,10 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllPostsMetadata('articles')
+  const articles = await getAllPostsMetadata('articles')
   return {
     props: {
-      posts,
+      articles,
     },
   }
 }

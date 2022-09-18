@@ -6,7 +6,7 @@ export enum EventType {
 export interface Event {
   id: string
   kind: EventType
-  startTime: string | null
+  startTime: string
   endTime?: string
   data: any
 }

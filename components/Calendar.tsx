@@ -14,7 +14,7 @@ import {
   getDay,
 } from 'date-fns'
 
-function classNames(...classes) {
+function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
@@ -28,12 +28,19 @@ const COL_START_CLASSES = [
   'col-start-7',
 ]
 
+type CalendarProps = {
+  selectedDay: Date
+  setSelectedDay: (day: Date) => void
+  currentMonth: string
+  setCurrentMonth: (arg: string) => void
+}
+
 export default function Calendar({
   selectedDay,
   setSelectedDay,
   currentMonth,
   setCurrentMonth,
-}) {
+}: CalendarProps) {
   const firstDayOfCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
 
   const newDays = eachDayOfInterval({
@@ -51,7 +58,7 @@ export default function Calendar({
     setCurrentMonth(format(firstDayOfLastMonth, 'MMM-yyyy'))
   }
 
-  function selectDay(day) {
+  function selectDay(day: Date) {
     setSelectedDay(day)
     setCurrentMonth(format(day, 'MMM-yyyy'))
   }

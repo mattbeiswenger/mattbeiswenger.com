@@ -1,7 +1,14 @@
-import Code from '../components/Code'
+import Code from './Code'
 import Link from 'next/link'
+import React from 'react'
+import { MDXComponents as MDXComponentsType } from 'mdx/types'
 
-const CustomLink = (props) => {
+type AProps = React.DetailedHTMLProps<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+>
+
+const CustomLink = (props: AProps) => {
   const href = props.href
   const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'))
   const styles = 'text-pink-400'
@@ -26,14 +33,23 @@ const CustomLink = (props) => {
   )
 }
 
-const MdxComponents = {
-  code: ({ className, children }) => {
-    const languageMatch = className && className.match(/language-([^{]+)/)
+// type ProvidedComponents = MDXComponentsType & {
+//   code?: (args: { className: string; children: React.ReactNode }) => typeof Code
+// }
+
+// type ProvidedComponents = MDXComponentsType & {
+//   code?: typeof Code
+// }
+
+const MdxComponents: MDXComponentsType = {
+  code: (props) => {
+    const languageMatch =
+      props.className && props.className.match(/language-([^{]+)/)
 
     if (languageMatch) {
       return (
         <div className="min-w-full my-8 overflow-hidden lg:w-full lg:rounded-xl">
-          <Code language={languageMatch[1]}>{children}</Code>
+          <Code language={languageMatch[1]}>{props.children as string}</Code>
         </div>
       )
     }
@@ -41,7 +57,7 @@ const MdxComponents = {
     // Inline code
     return (
       <code className="px-1.5 py-1 text-sm bg-neutral-100 dark:bg-neutral-800 rounded-md whitespace-nowrap dark:text-white">
-        {children}
+        {props.children}
       </code>
     )
   },

@@ -5,7 +5,11 @@ import Image from 'next/image'
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 
-export default function Photos({ photos }) {
+type PhotosProps = {
+  photos: string[]
+}
+
+export default function Photos({ photos }: PhotosProps) {
   return (
     <Container
       title="Photos — Matt Beiswenger"

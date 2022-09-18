@@ -1,15 +1,23 @@
-import { getPostBySlug, getPublishedPosts } from '../../lib/mdx'
+import { getPostBySlug, getPublishedPosts, PostMetadata } from '../../lib/mdx'
 import { MDXRemote } from 'next-mdx-remote'
 import Container from '../../components/Container'
 import Date from '../../components/Date'
 import Image from 'next/image'
 import Link from 'next/link'
 import BackButton from '../../components/BackButton'
+import MDXComponents from '../../components/MdxComponents'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { ParsedUrlQuery } from 'querystring'
 
-const editUrl = (slug) =>
+const editUrl = (slug: string) =>
   `https://github.com/mattbeiswenger/mattbeiswenger.com/edit/main/data/activities/${slug}.mdx`
 
-export default function Post({ source, metadata }) {
+type PostProps = {
+  source: string
+  metadata: PostMetadata
+}
+
+export default function Post({ source, metadata }: PostProps) {
   return (
     <Container title={metadata.title}>
       <BackButton href="/articles">Articles</BackButton>
@@ -24,7 +32,7 @@ export default function Post({ source, metadata }) {
             <div>{metadata.readingTime}</div>
           </div>
         </header>
-        <MDXRemote {...source} />
+        <MDXRemote compiledSource={source} components={MDXComponents} />
         <footer className="max-w-3xl pt-8 mx-auto">
           <a
             href={editUrl(metadata.slug)}
@@ -61,8 +69,12 @@ export default function Post({ source, metadata }) {
   )
 }
 
-export async function getStaticPaths() {
-  const posts = await getPublishedPosts('articles')
+interface IParams extends ParsedUrlQuery {
+  slug: string
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = await getPublishedPosts()
   return {
     paths: posts.map((p) => ({
       params: {
@@ -73,6 +85,7 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
-  return await getPostBySlug('articles', params.slug)
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { slug } = context.params as IParams
+  return await getPostBySlug('articles', slug)
 }

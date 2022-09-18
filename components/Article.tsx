@@ -1,7 +1,13 @@
 import Date from './Date'
 import Link from 'next/link'
 
-export default function ContentCard({ href, published, title }) {
+type ArticleProps = {
+  href: string
+  published: string
+  title: string
+}
+
+export default function Article({ href, published, title }: ArticleProps) {
   return (
     <Link href={href}>
       <a className="flex items-center justify-between gap-2">
