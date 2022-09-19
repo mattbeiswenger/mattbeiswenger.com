@@ -6,12 +6,15 @@ import Link from 'next/link'
 import Header from '../components/Header'
 import EventStream from '../components/EventStream'
 import { Event } from '../types'
+import { useCommandPaletteContext } from '../contexts/command-palette'
 
 type HomeProps = {
   events: Event[]
 }
 
 export default function Home({ events }: HomeProps) {
+  const [open, setOpen] = useCommandPaletteContext()
+
   return (
     <>
       <Container title="Matt Beiswenger">
@@ -23,7 +26,7 @@ export default function Home({ events }: HomeProps) {
           I&apos;m a design-focused software developer currently building
           products at{' '}
           <a
-            className="flex items-center gap-1 text-neutral-400"
+            className="inline-flex items-center gap-1 text-neutral-400"
             href="https://topbloc.com"
             rel="noreferrer"
             target="_blank"
@@ -32,10 +35,13 @@ export default function Home({ events }: HomeProps) {
             <ArrowUpRightIcon className="w-3 h-3 stroke-neutral-300" />
           </a>
           <div className="mt-5">
-            Type{' '}
-            <span className="px-1 py-0.5 text-sm rounded-md bg-neutral-800 border border-neutral-700">
+            Type or press{' '}
+            <button
+              onClick={() => setOpen(true)}
+              className="ring-0 px-1 py-0.5 text-sm rounded-md bg-neutral-800 border border-neutral-700"
+            >
               ⌘K
-            </span>{' '}
+            </button>{' '}
             to explore this site
           </div>
         </div>
