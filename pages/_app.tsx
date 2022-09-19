@@ -2,9 +2,10 @@ import '../styles/global.css'
 import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
 import * as Fathom from 'fathom-client'
-import { useEffect } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import CommandPalette from '../components/CommandPalette'
+import { CommandPaletteProvider } from '../contexts/command-palette'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -22,10 +23,15 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [])
 
+  const [open, setOpen] = useState(false)
+  createContext([open, setOpen])
+
   return (
     <ThemeProvider defaultTheme="system" attribute="class">
-      <CommandPalette />
-      <Component {...pageProps} />
+      <CommandPaletteProvider>
+        <CommandPalette />
+        <Component {...pageProps} />
+      </CommandPaletteProvider>
     </ThemeProvider>
   )
 }
