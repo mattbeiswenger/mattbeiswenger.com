@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app'
 import * as Fathom from 'fathom-client'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import CommandPalette from '../components/CommandPalette'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -23,6 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider defaultTheme="system" attribute="class">
+      <CommandPalette />
       <Component {...pageProps} />
     </ThemeProvider>
   )
