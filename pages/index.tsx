@@ -5,8 +5,13 @@ import { getCommits } from '../lib/github'
 import Link from 'next/link'
 import Header from '../components/Header'
 import EventStream from '../components/EventStream'
+import { Event } from '../types'
 
-export default function Home({ events }) {
+type HomeProps = {
+  events: Event[]
+}
+
+export default function Home({ events }: HomeProps) {
   return (
     <>
       <Container title="Matt Beiswenger">
@@ -58,7 +63,7 @@ export async function getStaticProps() {
   const events = await Promise.all([getStravaActivities(), getCommits()])
   const mergedEvents = events.flat()
   mergedEvents.sort((a, b) => {
-    return new Date(b.startTime) - new Date(a.startTime)
+    return new Date(b.startTime).getTime() - new Date(a.startTime).getTime()
   })
   const firstTenEvents = mergedEvents.slice(0, 10)
 

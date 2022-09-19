@@ -2,11 +2,21 @@ import Link from 'next/link'
 import Head from 'next/head'
 import { ArrowUpRightIcon } from '@heroicons/react/24/outline'
 import { format } from 'date-fns'
+import React from 'react'
 
-export default function Container({ children, className, ...customMeta }) {
+type ContainerProps = {
+  children: React.ReactNode
+  className?: string
+  title: string
+}
+
+export default function Container({
+  children,
+  className,
+  title,
+}: ContainerProps) {
   const meta = {
-    title: 'Matt Beiswenger',
-    ...customMeta,
+    title: title,
   }
 
   return (

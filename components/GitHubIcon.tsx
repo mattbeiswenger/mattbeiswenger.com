@@ -1,4 +1,8 @@
-export default function GitHubIcon({ className }) {
+type GitHubIconProps = {
+  className: string
+}
+
+export default function GitHubIcon({ className }: GitHubIconProps) {
   return (
     <svg
       className={className}

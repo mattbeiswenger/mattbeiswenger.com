@@ -1,8 +1,13 @@
 import { SparklesIcon } from '@heroicons/react/24/outline'
+import { Event as EventType } from '../types'
 import Event from './Event'
 import GitHubIcon from './GitHubIcon'
 
-export default function GitHubPushEvent({ event }) {
+type GitHubPushEventProps = {
+  event: EventType
+}
+
+export default function GitHubPushEvent({ event }: GitHubPushEventProps) {
   const [repoAccount, repoName] = event.data.repo.name.split('/')
 
   return (

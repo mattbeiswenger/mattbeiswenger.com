@@ -3,7 +3,12 @@ import { useEffect, useState } from 'react'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import { useRouter } from 'next/router'
 
-const OPTIONS = [
+type MenuOption = {
+  name: string
+  url: string
+}
+
+const OPTIONS: MenuOption[] = [
   { name: 'Activities', url: '/activities' },
   { name: 'Articles', url: '/articles' },
   { name: 'Photos', url: '/photos' },
@@ -22,7 +27,7 @@ export default function CommandPalette() {
     : OPTIONS
 
   useEffect(() => {
-    const down = (e) => {
+    const down = (e: KeyboardEvent) => {
       if (e.key === 'k' && e.metaKey) {
         setOpen((open) => !open)
       }
@@ -41,7 +46,7 @@ export default function CommandPalette() {
       <Dialog.Overlay />
       <Combobox
         nullable
-        onChange={(option) => {
+        onChange={(option: MenuOption) => {
           if (option) {
             setOpen(false)
             router.push(option.url)

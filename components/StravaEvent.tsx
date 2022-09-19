@@ -1,7 +1,12 @@
 import { BoltIcon } from '@heroicons/react/24/outline'
+import { Event as EventType } from '../types'
 import Event from './Event'
 
-export default function StravaEvent({ event }) {
+type StravaEventProps = {
+  event: EventType
+}
+
+export default function StravaEvent({ event }: StravaEventProps) {
   return (
     <Event>
       <Event.Node gradient="from-amber-600 to-pink-600">
