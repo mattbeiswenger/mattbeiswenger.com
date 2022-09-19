@@ -12,7 +12,7 @@ async function updateEnvironmentVariable(id: string, value: string) {
     `https://api.vercel.com/v9/projects/mattbeiswenger-com/env/${id}`,
     {
       method: 'PATCH',
-      body: JSON.stringify({ value }),
+      body: JSON.stringify({ value, type: 'plain' }),
       headers: { Authorization: `Bearer ${process.env.VERCEL_ACCESS_TOKEN}` },
     }
   )
@@ -49,8 +49,9 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         ])
 
         res.status(200).json({ success: true })
+      } else {
+        throw Error('Missing required environment variable')
       }
-      throw new Error('Missing required environment variable')
     } catch (e) {
       if (e instanceof Error) {
         res.status(500).json({ statusCode: 500, message: e.message })
@@ -62,7 +63,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 }
 
-export default verifySignature(handler)
+export default handler
 
 export const config = {
   api: {
