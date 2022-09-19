@@ -2,6 +2,7 @@ import { Dialog, Combobox } from '@headlessui/react'
 import { useEffect, useState } from 'react'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import { useRouter } from 'next/router'
+import { useCommandPaletteContext } from '../contexts/command-palette'
 
 type MenuOption = {
   name: string
@@ -17,8 +18,8 @@ const OPTIONS: MenuOption[] = [
 
 export default function CommandPalette() {
   const router = useRouter()
-  const [open, setOpen] = useState(false)
   const [query, setQuery] = useState('')
+  const [open, setOpen] = useCommandPaletteContext()
 
   const filteredOptions = query
     ? OPTIONS.filter((option) =>
@@ -67,7 +68,7 @@ export default function CommandPalette() {
         </div>
         <Combobox.Options
           static
-          className="flex flex-col items-start w-full p-2 overflow-y-auto max-h-96"
+          className="flex flex-col items-start w-full p-2 overflow-y-auto text-sm max-h-96 sm:text-base"
         >
           {filteredOptions.map((option) => (
             <Combobox.Option
