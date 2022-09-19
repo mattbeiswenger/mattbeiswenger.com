@@ -8,7 +8,7 @@ const root = process.cwd()
 
 export type PostMetadata = {
   title: string
-  description: string
+  description?: string
   published: string
   readingTime: string
   slug: string
@@ -32,12 +32,13 @@ export async function getPostBySlug(type: string, slug: string) {
     ? fs.readFileSync(path.join(root, 'data', type, `${slug}.mdx`), 'utf8')
     : fs.readFileSync(path.join(root, 'data', `${type}.mdx`), 'utf8')
   const { data, content } = matter(source)
+  const frontmatter = data as PostMetadata
   const mdxSource = await serialize(content)
   return {
     props: {
-      source: mdxSource,
+      source: mdxSource.compiledSource,
       metadata: {
-        ...data,
+        ...frontmatter,
         readingTime: readingTime(content).text,
         slug,
       },

@@ -32,7 +32,9 @@ export default function Post({ source, metadata }: PostProps) {
             <div>{metadata.readingTime}</div>
           </div>
         </header>
-        <MDXRemote compiledSource={source} components={MDXComponents} />
+        <div className="wrapper">
+          <MDXRemote compiledSource={source} components={MDXComponents} />
+        </div>
         <footer className="max-w-3xl pt-8 mx-auto">
           <a
             href={editUrl(metadata.slug)}
