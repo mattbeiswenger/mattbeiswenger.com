@@ -12,6 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.2",
     "@heroicons/react": "^2.0.10",
+    "@sentry/nextjs": "^7.13.0",
     "@upstash/qstash": "^0.1.7",
     "date-fns": "^2.29.2",
     "fathom-client": "^3.5.0",

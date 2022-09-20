@@ -1,5 +1,6 @@
 import { verifySignature } from '@upstash/qstash/nextjs'
 import { NextApiRequest, NextApiResponse } from 'next'
+import { withSentry } from '@sentry/nextjs'
 
 /**
  * This lambda function is used to refresh the strava access token and update
@@ -63,7 +64,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 }
 
-export default handler
+export default withSentry(verifySignature(handler))
 
 export const config = {
   api: {

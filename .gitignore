@@ -36,3 +36,5 @@ yarn-error.log*
 
 # temporary directories
 /tmp
+# Sentry
+.sentryclirc
