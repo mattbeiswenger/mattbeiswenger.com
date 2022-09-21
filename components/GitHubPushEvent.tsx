@@ -1,6 +1,7 @@
 import { SparklesIcon } from '@heroicons/react/24/outline'
 import { Event as EventType } from '../types'
 import Event from './Event'
+import GitCommitIcon from './GitCommitIcon'
 import GitHubIcon from './GitHubIcon'
 
 type GitHubPushEventProps = {
@@ -13,7 +14,7 @@ export default function GitHubPushEvent({ event }: GitHubPushEventProps) {
   return (
     <Event>
       <Event.Node gradient="from-sky-600 to-rose-600">
-        <SparklesIcon />
+        <GitCommitIcon />
       </Event.Node>
       <Event.Header startTime={event.startTime}>
         Pushed {event.data.numberOfCommits}{' '}
