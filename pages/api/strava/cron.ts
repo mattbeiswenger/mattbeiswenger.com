@@ -55,6 +55,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       }
     } catch (e) {
       if (e instanceof Error) {
+        console.error(e.message, e.stack)
         res.status(500).json({ statusCode: 500, message: e.message })
       }
     }
