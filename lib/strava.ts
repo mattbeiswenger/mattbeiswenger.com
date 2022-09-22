@@ -51,6 +51,13 @@ export async function getStravaActivities(): Promise<Event[]> {
     }
   )
 
+  if (!response.ok) {
+    const { message, errors } = await response.json()
+    console.error(message)
+    console.error(errors)
+    throw new Error(`Strava request failed with message ${message}`)
+  }
+
   let activities: SummaryActivity[] = await response.json()
 
   return activities.map((activity) => {
