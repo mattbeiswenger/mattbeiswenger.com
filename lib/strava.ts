@@ -42,6 +42,7 @@ function formatPace(seconds: number) {
 }
 
 export async function getStravaActivities(): Promise<Event[]> {
+  throw new Error('Testing Sentry SSR integration')
   const response = await fetch(
     'https://www.strava.com/api/v3/athlete/activities',
     {
