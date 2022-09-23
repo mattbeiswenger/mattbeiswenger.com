@@ -1,19 +1,45 @@
 import { Dialog, Combobox } from '@headlessui/react'
 import { useEffect, useState } from 'react'
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import {
+  CalendarDaysIcon,
+  CameraIcon,
+  HomeIcon,
+  MagnifyingGlassIcon,
+  PencilIcon,
+} from '@heroicons/react/24/outline'
 import { useRouter } from 'next/router'
 import { useCommandPaletteContext } from '../contexts/command-palette'
 
 type MenuOption = {
   name: string
   url: string
+  icon: (arg: boolean) => React.ReactNode
 }
 
+const iconClasses = (active: boolean) =>
+  `w-4 h-4 ${active ? 'text-neutral-400' : 'text-neutral-500'}`
+
 const OPTIONS: MenuOption[] = [
-  { name: 'Activities', url: '/activities' },
-  { name: 'Articles', url: '/articles' },
-  { name: 'Photos', url: '/photos' },
-  { name: 'Home', url: '/' },
+  {
+    name: 'Activities',
+    url: '/activities',
+    icon: (active) => <CalendarDaysIcon className={iconClasses(active)} />,
+  },
+  {
+    name: 'Articles',
+    url: '/articles',
+    icon: (active) => <PencilIcon className={iconClasses(active)} />,
+  },
+  {
+    name: 'Photos',
+    url: '/photos',
+    icon: (active) => <CameraIcon className={iconClasses(active)} />,
+  },
+  {
+    name: 'Home',
+    url: '/',
+    icon: (active) => <HomeIcon className={iconClasses(active)} />,
+  },
 ]
 
 export default function CommandPalette() {
@@ -79,12 +105,13 @@ export default function CommandPalette() {
             >
               {({ active }) => (
                 <div
-                  className={`px-4 py-2 overflow-hidden rounded-lg ${
+                  className={`px-4 py-2 overflow-hidden flex gap-2 items-center rounded-lg ${
                     active
                       ? 'bg-neutral-700 bg-opacity-40 text-neutral-300 shadow-sm'
                       : 'text-neutral-400'
                   }`}
                 >
+                  {option.icon(active)}
                   {option.name}
                 </div>
               )}
