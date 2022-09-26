@@ -21,9 +21,9 @@ export default function Post({ source, metadata }: PostProps) {
   return (
     <Container title={metadata.title}>
       <BackButton href="/articles">Articles</BackButton>
-      <article className="mx-auto sm:text-lg text-md">
+      <article className="mx-auto text-sm sm:text-base">
         <header className="max-w-3xl mx-auto">
-          <h1 className="text-lg font-medium text-neutral-800 md:text-4xl dark:text-neutral-100">
+          <h1 className="text-lg font-medium text-neutral-800 md:text-2xl dark:text-neutral-200">
             {metadata.title}
           </h1>
           <div className="flex gap-2 mt-2 text-neutral-600 dark:text-neutral-400">
@@ -32,7 +32,7 @@ export default function Post({ source, metadata }: PostProps) {
             <div>{metadata.readingTime}</div>
           </div>
         </header>
-        <div className="wrapper">
+        <div className="mt-10 prose prose-neutral dark:prose-invert prose-h2:font-medium prose-h2:sm:text-lg">
           <MDXRemote compiledSource={source} components={MDXComponents} />
         </div>
         <footer className="max-w-3xl pt-8 mx-auto">
@@ -44,27 +44,6 @@ export default function Post({ source, metadata }: PostProps) {
           >
             Edit on GitHub
           </a>
-          <div className="grid mt-6 justify-items-center">
-            <Link href="/">
-              <a>
-                <Image
-                  className="rounded-full cursor-pointer"
-                  src="/profile.jpg"
-                  alt="Image of author"
-                  width="96"
-                  height="96"
-                />
-              </a>
-            </Link>
-            <span className="pt-4 text-xs text-neutral-500">WRITTEN BY</span>
-            <Link href="/">
-              <a>
-                <span className="pt-1 text-lg cursor-pointer">
-                  Matt Beiswenger
-                </span>
-              </a>
-            </Link>
-          </div>
         </footer>
       </article>
     </Container>

@@ -3,6 +3,8 @@ import path from 'path'
 import { serialize } from 'next-mdx-remote/serialize'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
+import rehypePrism from 'rehype-prism-plus'
+import { Event, EventType } from '../types'
 
 const root = process.cwd()
 
@@ -33,7 +35,12 @@ export async function getPostBySlug(type: string, slug: string) {
     : fs.readFileSync(path.join(root, 'data', `${type}.mdx`), 'utf8')
   const { data, content } = matter(source)
   const frontmatter = data as PostMetadata
-  const mdxSource = await serialize(content)
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      rehypePlugins: [rehypePrism],
+      format: 'mdx',
+    },
+  })
   return {
     props: {
       source: mdxSource.compiledSource,
@@ -44,6 +51,34 @@ export async function getPostBySlug(type: string, slug: string) {
       },
     },
   }
+}
+
+export async function getArticleEvents() {
+  const files = fs.readdirSync(path.join(root, 'data/articles'))
+
+  return files.reduce<Event[]>((allPosts, postSlug) => {
+    const slug = postSlug.replace('.mdx', '')
+    const source = fs.readFileSync(
+      path.join(root, 'data/articles', postSlug),
+      'utf8'
+    )
+    const { data } = matter(source)
+    const frontmatter = data as PostMetadata
+    return frontmatter.published
+      ? [
+          {
+            id: slug,
+            kind: EventType.PUBLISHED_ARTICLE,
+            startTime: frontmatter.published,
+            data: {
+              title: frontmatter.title,
+              slug: slug,
+            },
+          },
+          ...allPosts,
+        ]
+      : allPosts
+  }, [] as Event[])
 }
 
 export async function getAllPostsMetadata(type: string) {

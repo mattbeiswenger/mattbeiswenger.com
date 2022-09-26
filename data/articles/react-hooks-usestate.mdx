@@ -1,0 +1,184 @@
+---
+title: 'React Hooks: useState'
+published: '2022-09-26T04:32:43.636Z'
+---
+<Callout>
+In this series of blog posts, I do a deep dive into every React hook
+</Callout>
+
+## Syntax
+
+The `useState` hook is the most simple and commonly used React hook. It's used to store a single state variable and is used like so:
+
+```jsx
+import { useState } from 'react'
+const [count, setCount] = useState(0)
+```
+
+As you can see, the `useState` hook returns an array with two values. We're able to assign these values into `count` and `setCount` variables
+using the [destructuring assignment syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
+The following code, while slightly more verbose, will achieve the same result as above:
+
+```jsx
+const state = useState(0)
+const count = state[0]
+const setCount = state[1]
+```
+
+It's also important to note that we can name `count` and `setCount` to whatever we want, but convention
+suggests to use `<variable>` and `set<Variable>`.
+
+## Return Values
+
+The _first_ value in the array, which we're assigning to `count` is a single state variable.
+
+The _second_ value, `setCount`, is a function
+that sets the value of the state variable. If we wanted to change the count to 2 we would invoke the function as `setCount(2)`.
+
+Here's an example
+of using the `setCount()` function to increment and decrement the state variable using two buttons.
+
+<Sandpack template="react" theme="dark" files={{"/App.js": `import { useState } from 'react'
+
+export default function Counter() {
+  const [count, setCount] = useState(0)
+  return (
+    <>
+      <div>The count is {count}</div>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
+    </>
+  )
+}
+`}} />
+
+
+## Setting the Same Value
+
+Whenever the `setCount()` function is called with a new value, the component will re-render in order to display the updated value. Note
+that this will only happen if the value passed to `setCount()` is different from the current one.
+
+<Callout>
+You can view the logs by either opening the developer tools in your browser or by opening the CodeSandbox by clicking the
+<ArrowTopRightOnSquareIcon className="w-4 h-4 inline-flex items-center" /> icon and opening the console tab
+</Callout>
+
+
+<Sandpack template="react" theme="dark" files={{"/App.js": `import { useState } from 'react'
+
+export default function Counter() {
+  console.log('component rerendered')
+  const [count, setCount] = useState(5)
+
+  return (
+    <>
+      <div>The count is {count}</div>
+      <button onClick={() => setCount(5)}>Set count to same value</button>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
+    </>
+  )
+}`}} />
+
+## Setting State With a Function
+
+The setter function returned by `useState` can also take in a function where the argument is the previous state value:
+
+```jsx
+setCount(previousCount => previousCount + 1)
+```
+
+This is actually good practice when setting the state based on a previous value (even though I didn't do it in my other examples 😬). The reason
+why this is good practice is that there can be unexpected state updates if there is a delay between the function call and the call to the setter.
+This is a bit complicated, so here's an example to better illustrate.
+
+<Callout>
+Kent C Dodd's has [a great blog post](https://kentcdodds.com/blog/use-state-lazy-initialization-and-function-updates#dispatch-function-updates) about this that the following example is derived from
+</Callout>
+
+In the example below, if you press the "Increment" button quickly three times (within the 500ms limit), you'll notice 
+that the count only increments by one.
+
+<Sandpack template="react" theme="dark" files={{"/App.js": `import { useState } from 'react'
+
+export default function DelayedCounter() {
+  const [count, setCount] = useState(0)
+  const increment = async () => {
+    await new Promise(resolve => setTimeout(resolve, 500))
+    setCount(count + 1)
+  }
+  return (
+    <>
+      <div>The count is {count}</div>
+      <button onClick={increment}>Increment</button>
+    </>
+  )
+}
+`}} />
+
+in order to rectify this problem, we can use `setCount(previousCount => previousCount + 1)`. Try adding this to the example
+above to ensure that the button clicks increment the count correctly.
+
+
+## Arguments
+
+The `useState` hook takes in a single argument that sets the initial value of the state variable on first render. It can also, however,
+take in a function. If a function is passed it will [lazily initialize](https://reactjs.org/docs/hooks-reference.html#lazy-initial-state) the initial
+value.
+
+## Lazy Initialization
+
+Lazy initialization is helpful when the initial value passed into the `useState()` hook is computationally expensive.
+To illustrate this concept, assume we have the following component.
+
+<Sandpack template="react" theme="dark" files={{"/App.js": `import { useState } from 'react'
+
+function expensiveComputation() {
+  console.log("expensive computation ran")
+  return 0
+}
+
+export default function Counter() {
+  const [count, setCount] = useState(expensiveComputation())
+  return (
+    <>
+      <div>The count is {count}</div>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
+    </>
+  )
+}`,
+}} />
+
+Even though the initial value gets disregarded on
+subsequent renders, the function that creates the initial value still runs. This can be problematic if we
+have initial values that are expensive to calculate because they can cause a significant delay when
+rendering our components.
+
+To calculate the initial value on only the first render and not on subsequent renders, we can pass a function
+to the `useState` hook.
+
+<Sandpack template="react" theme="dark" files={{"/App.js": `import { useState } from 'react'
+
+function expensiveComputation() {
+console.log("expensive computation ran")
+return 0
+}
+
+export default function Counter() {
+  const [count, setCount] = useState(() => expensiveComputation())
+  return (
+    <>
+      <div>The count is {count}</div>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
+    </>
+  )
+}`,
+}} />
+
+If you check the logs in the example above, you'll see that even though the component re-renders, the
+initialization function does not get called.
+
+Note that you should probably only use this if you're noticing significant render delays in your components,
+otherwise it's best practice to pass the value without lazy initialization.

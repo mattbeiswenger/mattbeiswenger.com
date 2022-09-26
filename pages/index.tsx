@@ -7,6 +7,7 @@ import Header from '../components/Header'
 import EventStream from '../components/EventStream'
 import { Event } from '../types'
 import { useCommandPaletteContext } from '../contexts/command-palette'
+import { getArticleEvents } from '../lib/mdx'
 
 type HomeProps = {
   events: Event[]
@@ -66,7 +67,11 @@ export default function Home({ events }: HomeProps) {
 }
 
 export async function getStaticProps() {
-  const events = await Promise.all([getStravaActivities(), getCommits()])
+  const events = await Promise.all([
+    getStravaActivities(),
+    getCommits(),
+    getArticleEvents(),
+  ])
   const mergedEvents = events.flat()
   mergedEvents.sort((a, b) => {
     return new Date(b.startTime).getTime() - new Date(a.startTime).getTime()
