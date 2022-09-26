@@ -10,7 +10,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 
 const editUrl = (slug: string) =>
-  `https://github.com/mattbeiswenger/mattbeiswenger.com/edit/main/data/activities/${slug}.mdx`
+  `https://github.com/mattbeiswenger/mattbeiswenger.com/edit/main/data/articles/${slug}.mdx`
 
 type PostProps = {
   source: string
