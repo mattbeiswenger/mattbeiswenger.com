@@ -36,15 +36,15 @@ export default function Counter() {
   console.log('component rerendered')
   const [count, setCount] = useState(5)
 
-return (
-
-<>
-  <div>The count is {count}</div>
-  <button onClick={() => setCount(5)}>Set count to same value</button>
-  <button onClick={() => setCount(count + 1)}>Increment</button>
-  <button onClick={() => setCount(count - 1)}>Decrement</button>
-</>
-) }`,
+  return (
+    <>
+      <div>The count is {count}</div>
+      <button onClick={() => setCount(5)}>Set count to same value</button>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
+    </>
+  )
+}`,
       }}
     />
   )
@@ -86,8 +86,8 @@ export function Example4() {
         '/App.js': `import { useState } from 'react'
 
 function expensiveComputation() {
-console.log("expensive computation ran")
-return 0
+  console.log("expensive computation ran")
+  return 0
 }
 
 export default function Counter() {
@@ -114,8 +114,8 @@ export function Example5() {
         '/App.js': `import { useState } from 'react'
 
 function expensiveComputation() {
-console.log("expensive computation ran")
-return 0
+  console.log("expensive computation ran")
+  return 0
 }
 
 export default function Counter() {
