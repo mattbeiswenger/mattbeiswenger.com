@@ -2,11 +2,17 @@ import BackButton from '../components/BackButton'
 import Container from '../components/Container'
 import ContentCard from '../components/Article'
 import Header from '../components/Header'
-import { getAllPostsMetadata, PostMetadata } from '../lib/mdx'
+import { getArticles, Frontmatter } from '../lib/mdx'
 import { useCommandPaletteContext } from '../contexts/command-palette'
 
+type Article = {
+  frontmatter: Frontmatter
+  code: string
+  slug: string
+}
+
 type ArticlesProps = {
-  articles: PostMetadata[]
+  articles: Article[]
 }
 
 export default function Home({ articles }: ArticlesProps) {
@@ -27,13 +33,13 @@ export default function Home({ articles }: ArticlesProps) {
         </button>
       </div>
       <div className="flex flex-col gap-5 mt-5">
-        {articles.map((article) => {
+        {articles.map(({ frontmatter, slug }) => {
           return (
             <ContentCard
-              key={article.slug}
-              href={`/articles/${article.slug}`}
-              published={article.published}
-              title={article.title}
+              key={slug}
+              href={`/articles/${slug}`}
+              published={frontmatter.published}
+              title={frontmatter.title}
             />
           )
         })}
@@ -43,7 +49,7 @@ export default function Home({ articles }: ArticlesProps) {
 }
 
 export async function getStaticProps() {
-  const articles = await getAllPostsMetadata('articles')
+  const articles = await getArticles()
   return {
     props: {
       articles,
