@@ -1,6 +1,6 @@
 import { BoltIcon } from '@heroicons/react/24/outline'
-import { Event as EventType } from '../types'
-import Event from './Event'
+import { Event as EventType } from '../../types'
+import Event from '../Event'
 
 type StravaEventProps = {
   event: EventType

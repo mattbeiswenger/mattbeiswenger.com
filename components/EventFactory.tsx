@@ -1,7 +1,7 @@
-import GitHubPushEvent from './GitHubPushEvent'
-import StravaEvent from './StravaEvent'
+import GitHubPushEvent from './events/GitHubPushEvent'
+import StravaEvent from './events/StravaEvent'
 import { Event, EventType } from '../types'
-import ArticleEvent from './ArticleEvent'
+import ArticleEvent from './events/ArticleEvent'
 
 type EventFactoryProps = {
   event: Event

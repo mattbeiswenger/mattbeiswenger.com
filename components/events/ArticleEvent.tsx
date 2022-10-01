@@ -1,7 +1,7 @@
 import { PencilIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import { Event as EventType } from '../types'
-import Event from './Event'
+import { Event as EventType } from '../../types'
+import Event from '../Event'
 
 type ArticleEventProps = {
   event: EventType

@@ -1,8 +1,8 @@
 import { SparklesIcon } from '@heroicons/react/24/outline'
-import { Event as EventType } from '../types'
-import Event from './Event'
-import GitCommitIcon from './GitCommitIcon'
-import GitHubIcon from './GitHubIcon'
+import { Event as EventType } from '../../types'
+import Event from '../Event'
+import GitCommitIcon from '../icons/GitCommitIcon'
+import GitHubIcon from '../icons/GitHubIcon'
 
 type GitHubPushEventProps = {
   event: EventType
