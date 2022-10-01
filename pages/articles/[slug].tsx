@@ -19,6 +19,7 @@ type PostProps = {
   code: string
   frontmatter: Frontmatter
   slug: string
+  readingTime: string
 }
 
 export default function Post({

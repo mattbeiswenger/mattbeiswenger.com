@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
 import { MDXComponents as MDXComponentsType } from 'mdx/types'
-import { Sandpack } from '@codesandbox/sandpack-react'
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
 import Callout from '../components/Callout'
+import Code from '../components/Code'
+import Sandpack from '../components/Sandpack'
 
 type AProps = React.DetailedHTMLProps<
   React.AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -26,8 +27,13 @@ const CustomLink = (props: AProps) => {
 }
 
 const MdxComponents: MDXComponentsType = {
+  pre: ({ children }) => {
+    return (
+      // @ts-expect-error pre types are incorrect
+      <Code language={children.props.className}>{children.props.children}</Code>
+    )
+  },
   Sandpack,
-  ArrowTopRightOnSquareIcon,
   Callout,
   a: (props) => <CustomLink {...props} />,
 }

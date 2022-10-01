@@ -105,7 +105,7 @@ export default function CommandPalette() {
             >
               {({ active }) => (
                 <div
-                  className={`px-4 py-2 overflow-hidden flex gap-2 items-center rounded-lg ${
+                  className={`px-4 py-2 overflow-hidden flex gap-2 text-sm items-center rounded-lg ${
                     active
                       ? 'bg-neutral-700 bg-opacity-40 text-neutral-300 shadow-sm'
                       : 'text-neutral-400'

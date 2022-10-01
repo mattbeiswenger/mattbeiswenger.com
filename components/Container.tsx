@@ -21,7 +21,7 @@ export default function Container({
 
   return (
     <main
-      className={`${className} max-w-2xl mx-auto antialiased mt-10 sm:mt-40 px-5 min-h-screen flex flex-col justify-between`}
+      className={`${className} lg:max-w-3xl max-w-xl md:max-w-2xl mx-auto antialiased mt-10 sm:mt-40 px-5 min-h-screen flex flex-col justify-between`}
     >
       <Head>
         <title>{meta.title}</title>
