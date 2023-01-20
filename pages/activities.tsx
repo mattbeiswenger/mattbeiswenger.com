@@ -34,7 +34,7 @@ export default function Activities({ events }: ActivitiesProps) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const events = await Promise.all([
     getStravaActivities(),
     getCommits(),
