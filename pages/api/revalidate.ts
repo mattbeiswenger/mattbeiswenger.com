@@ -7,9 +7,6 @@ import { verifySignature } from '@upstash/qstash/nextjs'
  */
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
-  console.log(req.body)
-  console.log(req.body.secret)
-
   const body = await readBody(req)
   console.log(body)
 
