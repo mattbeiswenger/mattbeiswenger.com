@@ -26,3 +26,9 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 }
 
 export default verifySignature(handler)
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+}
