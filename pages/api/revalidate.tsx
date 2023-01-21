@@ -7,14 +7,19 @@ import { verifySignature } from '@upstash/qstash/nextjs'
  */
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (!('secret' in req.body)) {
+    return res.status(401).json({ message: 'No token provided' })
+  }
   if (req.body.secret !== process.env.REVALIDATION_TOKEN) {
-    return res.status(401).json({ message: 'Invalid token' })
+    return res.status(403).json({ message: 'Invalid token' })
   }
 
   try {
+    console.log('[Next.js] Revalidating /')
     await res.revalidate('/')
+    console.log('[Next.js] Revalidating /activities')
     await res.revalidate('/activities')
-    return res.json({ revalidated: true })
+    return res.status(200).send('Success!')
   } catch (err) {
     return res.status(500).send('Error revalidating')
   }
