@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import { verifySignature } from '@upstash/qstash/nextjs'
 
 /**
  * Revalidate home page and activities page
@@ -19,4 +20,4 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 }
 
-export default handler
+export default verifySignature(handler)
