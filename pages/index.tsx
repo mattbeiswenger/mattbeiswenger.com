@@ -1,6 +1,5 @@
 import Container from '../components/Container'
 import { ArrowUpRightIcon } from '@heroicons/react/24/outline'
-import { getStravaActivities } from '../lib/strava'
 import { getCommits } from '../lib/github'
 import Link from 'next/link'
 import Header from '../components/Header'
@@ -67,11 +66,7 @@ export default function Home({ events }: HomeProps) {
 }
 
 export async function getStaticProps() {
-  const events = await Promise.all([
-    getStravaActivities(),
-    getCommits(),
-    getArticleEvents(),
-  ])
+  const events = await Promise.all([getCommits(), getArticleEvents()])
   const mergedEvents = events.flat()
   mergedEvents.sort((a, b) => {
     return new Date(b.startTime).getTime() - new Date(a.startTime).getTime()

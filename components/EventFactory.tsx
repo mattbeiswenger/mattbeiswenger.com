@@ -1,5 +1,4 @@
 import GitHubPushEvent from './events/GitHubPushEvent'
-import StravaEvent from './events/StravaEvent'
 import { Event, EventType } from '../types'
 import ArticleEvent from './events/ArticleEvent'
 
@@ -9,8 +8,6 @@ type EventFactoryProps = {
 
 export default function EventFactory({ event }: EventFactoryProps) {
   switch (event.kind) {
-    case EventType.STRAVA_WORKOUT:
-      return <StravaEvent event={event} />
     case EventType.GIT_COMMIT:
       return <GitHubPushEvent event={event} />
     case EventType.PUBLISHED_ARTICLE:
