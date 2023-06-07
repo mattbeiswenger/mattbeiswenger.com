@@ -6,8 +6,7 @@
     "dev": "npx vercel env pull .env.local && next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "strava:generate": "scripty"
+    "lint": "next lint"
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^1.8.0",

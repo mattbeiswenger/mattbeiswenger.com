@@ -1,5 +1,4 @@
 import { getCommits } from '../lib/github'
-import { getStravaActivities } from '../lib/strava'
 import { getArticleEvents } from '../lib/mdx'
 import Container from '../components/Container'
 import EventStream from '../components/EventStream'
@@ -35,11 +34,7 @@ export default function Activities({ events }: ActivitiesProps) {
 }
 
 export async function getStaticProps() {
-  const events = await Promise.all([
-    getStravaActivities(),
-    getCommits(),
-    getArticleEvents(),
-  ])
+  const events = await Promise.all([getCommits(), getArticleEvents()])
   const mergedEvents = events.flat()
   mergedEvents.sort((a, b) => {
     return new Date(b.startTime).getTime() - new Date(a.startTime).getTime()

@@ -1,6 +1,5 @@
 export enum EventType {
   GIT_COMMIT,
-  STRAVA_WORKOUT,
   PUBLISHED_ARTICLE,
 }
 
