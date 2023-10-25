@@ -14,6 +14,8 @@ export async function getCommits(): Promise<Event[]> {
 
   const events: GitHubEvent[] = await response.json()
 
+  console.log(events)
+
   return events
     .filter((event): event is PushEvent => event.type === 'PushEvent')
     .map((event) => {

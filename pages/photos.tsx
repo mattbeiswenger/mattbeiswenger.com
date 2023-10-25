@@ -37,8 +37,8 @@ export default function Photos({ photos }: PhotosProps) {
               key={photo}
               className="relative rounded-md shadow-md aspect-w-2 aspect-h-3"
             >
-              {/* eslint-disable-next-line jsx-a11y/alt-text */}
               <Image
+                alt="Photo"
                 className="rounded-md"
                 src={`/photos/${photo}`}
                 layout="fill"

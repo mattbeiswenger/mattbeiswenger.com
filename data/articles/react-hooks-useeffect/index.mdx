@@ -1,0 +1,78 @@
+---
+title: 'React Hooks: useEffect'
+published: '2022-09-29T02:16:14.867Z'
+---
+
+The `useEffect` hooks accepts a single `setup` function. The `setup` function should
+return a corresponding `cleanup` function that tears down the logic within the `setup` function.
+
+<Callout>
+  Note that as of React 18, if you are using
+  [StrictMode](https://reactjs.org/docs/strict-mode.html) in development, React
+  will run both the setup and cleanup functions twice.
+</Callout>
+
+The second argment to `useEffect` is a dependency array. The dependency array determines what values will
+cause the `cleanup` and `setup` functions to run. There are a few different states for the dependency array:
+
+1. No dependency array
+2. Empty dependency array (`[]`)
+3. Dependency array with values (`[value1, value2]`)
+
+## No Dependency Array
+
+When no dependency array is defined, the `cleanup` and `setup` functions _will run every time
+the component re-renders_.
+
+## Empty Dependency Array
+
+When an empty dependency array is defined, we've intentionally told React that the
+`useEffect` hook has no dependencies and thus `cleanup` and `setup` functions _will only run on initial render_.
+
+## Dependency Array with Values
+
+When values are passed to the dependency array, they tell the
+
+There's a few states that the dependency array
+
+When a value in the dependency array is updated,
+it will cause the hook to run it's `cleanup` and `setup` functions.
+
+If there is no dependency array defined, the `useEffect` hook will `cleanup` and `setup` on every re-render.
+It's probably best to avoid this.
+
+The dependency array contains values that will cause
+the hook to run both it's `cleanup` and `setup` functions when theyThere are
+The dependency array will allow the `useEffect` hook to run anytime one of the values in dependency array changed.
+
+ <Sandpack
+      files={{
+        '/App.js': `import { useEffect, useState } from 'react'
+
+export default function Example() {
+  const [count, setCount] = useState(0)
+  
+  useEffect(() => {
+    console.log('setup')
+    return () => console.log('cleanup')
+  }, [count])
+  
+  return (
+    <>
+      <button onClick={() => setCount(count => count + 1)}>
+        Increment
+      </button>
+      <div>Count is {count}</div>
+    </>
+  )
+}`,
+      }}
+    />
+
+`useEffect` runs on initial render
+
+The function passed to `useEffect` will run after the render occurs
+
+By default, effects run after every render but you can choose to fire them only when certain values have changed
+
+## Best Practices

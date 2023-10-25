@@ -1,0 +1,162 @@
+---
+title: Why I Use Tailwind
+published: '2022-09-30T00:00:30.272Z'
+---
+
+## Philosophy
+
+Because Tailwind is a utility-first framework, it takes a much different approach to styling than traditional
+CSS or even [Sass](https://sass-lang.com/). To understand why we chose Tailwind as our styling tool at TopBloc, it's important
+to understand the problems that Tailwind and utility classes solve.
+
+## Removes Need for Naming
+
+There's a popular saying in the developer community: “There are only two hard things in Computer Science:
+cache invalidation and naming things”. While the [BEM model](https://getbem.com/introduction/) can help with
+creating appropriate class names, it can be tedious to think of names for more abstract elements like flex
+containers.
+
+With utility classes, you no longer have to think about creating class names at all because all the classes
+are already created for you.
+
+## Prevents Conflicting Changes
+
+With utility classes you don't need to worry about about conflicting class names. This makes it easier
+for developers to confidently make changes without worry of breaking existing styles.
+
+You also don't have to worry about cascading styles. While the cascading nature of CSS can be beneficial,
+it usually becomes a hassle when working with teams. Often times, when developers realize that their styles
+aren't working due to cascading, they'll mark their own styles with `!important` or use a lower level
+selector like an element's ID. This quickly results in fragile and difficult to maintain code.
+
+## Encourages Composition
+
+One of the first complaints developers have with utility classes is that they often have to repeat the same
+set of classes. This complaint might surface from writing something like this:
+
+```html
+<h1>Long Haired Dogs</h1>
+<ul class="flex gap-2">
+  <li class="px-3 py-1 border rounded-md">
+    <div class="font-semibold">Bernese Mountain Dog</div>
+    <div class="text-sm text-gray-500">
+      Big, powerful, and built for hard work
+    </div>
+  </li>
+  <li class="px-3 py-1 border rounded-md">
+    <div class="font-semibold">Akita</div>
+    <div class="text-sm text-gray-500">
+      Muscular, double-coated dog of ancient Japanese lineage
+    </div>
+  </li>
+</ul>
+<h1>Short Haired Dogs</h1>
+<ul class="flex gap-2">
+  <li class="px-3 py-1 border rounded-md">
+    <div class="font-semibold">Greyhound</div>
+    <div class="text-sm text-gray-500">
+      The champion sprinter of dogdom, the Greyhound is gentle and noble
+    </div>
+  </li>
+</ul>
+```
+
+If you wanted to change the text-sm of the dog's description to text-md, you would have to make the change
+in three different places. This is where you might think that traditional CSS has an advantage.
+With traditional CSS, we would likely have a class used by all three elements perhaps called
+dog-card\_\_description and we would only have to change the styles in that one class.
+
+This shortcoming of utility classes is actually a strength. Instead of using classes like dog-card\_\_description,
+utility classes force us to use composition in order to achieve DRYer styles. This composition can be achieved
+through components which are present in all modern day frontend frameworks. The solution would look something
+like this:
+
+```jsx
+<h1>Long Haired Dogs</h1>
+<Section>
+  <Dog name="Bernese Mountain Dog">
+    <Description>Big, powerful, and built for hard work</Description>
+  </Dog>
+  <Dog name="Akita">
+    <Description>
+      Muscular, double-coated dog of ancient Japanese lineage
+    </Description>
+  </Dog>
+</Section>
+<h1>Short Haired Dogs</h1>
+<Section>
+  <Dog name="Greyhound">
+    <Description>
+      The champion sprinter of dogdom, the Greyhound is gentle and noble
+    </Description>
+  </Dog>
+</Section>
+```
+
+Now when you want to change the styles, you just have to change the markup within the component.
+
+## Enforces Colocation
+
+Utility classes allow you to keep your styles where your markup is and not in an external CSS file. Firstly,
+this is useful for preventing unused styles. If someone removes an element from the markup, it's easy
+to forget to also remove the corresponding styles. Because utility classes are always used inline on
+the element, the styles are removed when you remove the element.
+
+This colocation of styles and markup is also beneficial in that peer reviewing code becomes much easier. You
+no longer have to jump between files to figure out exactly what changes were made.
+
+## Prevent Styles From Growing
+
+Imagine you're tasked with creating a new sidebar component. Using traditional CSS with a BEM model, you would
+probably create entirely new classes such as `sidebar-wrapper`, `sidebar__item`, `sidebar__link`, and so on.
+With each of these new classes you would write entirely new styles, and thus the number of styles present
+in the application grows.
+
+With utility classes, all the styles you will need to use likely already exist and so we avoid performance
+concerns associated with loading large stylesheets in the browser. Tailwind is able to prevent these large
+stylesheets because it only includes used styles within the final build of the application. It does this
+by statically analyzing files explicitly included in the content property of the tailwind.config.js file.
+
+<Callout>
+  While this static analysis can greatly reduce stylesheet sizes there's also a
+  gotcha that developer's can sometimes run into. Read on to learn more.
+</Callout>
+
+One caveat of Tailwind that developers often run into is that in order for static analysis of class names
+to work, the class names can't be broken into separate strings. This means that you can't write something
+like this:
+
+```
+<div class="text-{{ error ? 'red' : 'green' }}-600"></div>
+```
+
+You instead would have to write:
+
+```
+<div class="{{ error ? 'text-red-600' : 'text-green-600' }}"></div>
+```
+
+It's a minor difference in logic but it can be frustrating the first time you come across this quirk
+so it bears mentioning.
+
+## Enforces a Design System
+
+Although Tailwind provides all of the above benefits, some developers rightfully point out that you can
+pretty much get the same effect by using inline styles. This brings us to the final and perhaps the
+most important reason why Tailwind is such a great styling tool: it enforces a design system.
+
+A design system is a collection of reusable components that form the foundation of a visual language.
+Components within a design system can be combined to create larger components while still keeping the
+same visual foundation.
+
+Example components from Airbnb's design system
+
+Tailwind enforces a design system by only providing classes that fit the designated design system.
+This forces developers to pull from the design system instead of choosing values at random.
+Tailwind itself comes with a pre-made well-thought out system with it's own set of colors and spacing.
+All of these default styles can be overwritten or hidden within the tailwind.config.js file to match
+your own companies design system.
+
+Tailwind even provides a [presets](https://tailwindcss.com/docs/presets) feature that allows you to import
+reusable configurations that you may want to use across multiple projects within a company. This is helpful
+if companies want all their products to adhere to a particular design system.
