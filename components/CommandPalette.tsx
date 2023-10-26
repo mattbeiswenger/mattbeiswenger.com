@@ -57,6 +57,7 @@ export default function CommandPalette() {
     const down = (e: KeyboardEvent) => {
       if (e.key === 'k' && e.metaKey) {
         setOpen((open) => !open)
+        setQuery('')
       }
     }
 
