@@ -46,7 +46,7 @@ export default function Home({ events }: HomeProps) {
           </div>
         </div>
         <section>
-          <div className="mt-8 mb-5 text-neutral-800 dark:text-neutral-300">
+          <div className="mt-8 mb-5 text-neutral-300">
             Here&apos;s what I&apos;ve been up to recently
           </div>
           <div className="fade-bottom">

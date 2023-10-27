@@ -1,5 +1,4 @@
 import '../styles/global.css'
-import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
 import { createContext, useState } from 'react'
 import CommandPalette from '../components/CommandPalette'
@@ -11,13 +10,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   createContext([open, setOpen])
 
   return (
-    <ThemeProvider defaultTheme="system" attribute="class">
-      <CommandPaletteProvider>
-        <CommandPalette />
-        <Analytics />
-        <Component {...pageProps} />
-      </CommandPaletteProvider>
-    </ThemeProvider>
+    <CommandPaletteProvider>
+      <CommandPalette />
+      <Analytics />
+      <Component {...pageProps} />
+    </CommandPaletteProvider>
   )
 }
 
