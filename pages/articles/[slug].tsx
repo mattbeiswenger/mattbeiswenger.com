@@ -34,16 +34,16 @@ export default function Post({
       <BackButton href="/articles">Articles</BackButton>
       <article className="mx-auto text-sm sm:text-base">
         <header className="max-w-3xl mx-auto">
-          <h1 className="text-lg font-medium text-neutral-800 md:text-2xl dark:text-neutral-200">
+          <h1 className="text-lg font-medium md:text-2xl text-neutral-200">
             {frontmatter.title}
           </h1>
-          <div className="flex gap-2 mt-2 text-neutral-600 dark:text-neutral-400">
+          <div className="flex gap-2 mt-2 text-neutral-400">
             <Date dateString={frontmatter.published} />
             <div>&#x2022;</div>
             <div>{readingTime}</div>
           </div>
         </header>
-        <div className="mt-10 prose prose-neutral dark:prose-invert prose-h2:font-medium prose-h2:sm:text-lg">
+        <div className="mt-10 prose prose-neutral prose-invert prose-h2:font-medium prose-h2:sm:text-lg">
           <Component components={MDXComponents} />
         </div>
         <footer className="max-w-3xl pt-8 mx-auto">
