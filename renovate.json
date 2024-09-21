@@ -3,4 +3,5 @@
   "extends": [
     "config:base"
   ]
+  "reviewers": ["matt@bswngr.com"]
 }
